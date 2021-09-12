@@ -10,4 +10,231 @@
         <category>生活</category>
       </categories>
   </entry>
+  <entry>
+    <title>H263 overview</title>
+    <url>/2021/08/15/H263-overview/</url>
+    <content><![CDATA[<p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
+<p>1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.</p>
+<p>[TOC]</p>
+<h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a href="https://www.itu.int/rec/T-REC-H.263-200501-I/en">https://www.itu.int/rec/T-REC-H.263-200501-I/en</a></p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc2190">https://datatracker.ietf.org/doc/html/rfc2190</a></p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc4629">https://datatracker.ietf.org/doc/html/rfc4629</a></p>
+<h2 id="H263支持的图像格式"><a href="#H263支持的图像格式" class="headerlink" title="H263支持的图像格式"></a>H263支持的图像格式</h2><table>
+<thead>
+<tr>
+<th>图像格式</th>
+<th>亮度行像素数</th>
+<th>亮度行数目</th>
+<th>色度行像素数</th>
+<th>色度行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sub-QCIF</td>
+<td>128</td>
+<td>96</td>
+<td>64</td>
+<td>48</td>
+</tr>
+<tr>
+<td>QCIF</td>
+<td>176</td>
+<td>144</td>
+<td>88</td>
+<td>72</td>
+</tr>
+<tr>
+<td>CIF</td>
+<td>352</td>
+<td>288</td>
+<td>176</td>
+<td>144</td>
+</tr>
+<tr>
+<td>4CIF</td>
+<td>704</td>
+<td>576</td>
+<td>352</td>
+<td>288</td>
+</tr>
+<tr>
+<td>16CIF</td>
+<td>1408</td>
+<td>1152</td>
+<td>704</td>
+<td>576</td>
+</tr>
+</tbody></table>
+<h2 id="H263的编码流程"><a href="#H263的编码流程" class="headerlink" title="H263的编码流程"></a>H263的编码流程</h2><p>编码过程其实和264异曲同工，主要分为预测变换和熵编码，预测同样是帧内和帧间预测，变换使用DCT变换，量化后进行熵编码</p>
+<p><img src="/.com//h263-source-encode-frame.png" alt="asdsa"></p>
+<h2 id="H263句法分级结构"><a href="#H263句法分级结构" class="headerlink" title="H263句法分级结构"></a>H263句法分级结构</h2><p>h263 分层4个基本层级。从顶层到底层分别为： 图像，块组或截面或视频图像分段，宏块，块</p>
+<h3 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h3><p>h263种包含7种图像类型：</p>
+<p>1.I帧，INTRA预测</p>
+<p>2.P帧， INTER预测</p>
+<p>3.PB帧， 表示两个图像，都参考过去的帧</p>
+<p>4.改进的PB帧，功能类似PB帧但是效果更好。详细描述在建议书的附件M，没有去深究了</p>
+<p>5.B帧，参考时间域前后的两个图像</p>
+<p>6.EI帧，在时间域内同时存在多个参考帧图像，参考图像具有相同或者较小的尺寸</p>
+<p>7.EP帧，时间域内有2个参考图像，其中一个时间域超前，另外一个时间域同时存在，且具有相同或较小的尺寸</p>
+<h3 id="GOB"><a href="#GOB" class="headerlink" title="GOB"></a>GOB</h3><p>块组和GOB实质上是将几行的宏块组合在一起，将图像分割成不同的区域。 GOB规定每个块组最多Kx16行构成，若行数小于400，K=1，行数在400到800之间K=2，行数大于800，K=3.</p>
+<p><img src="/.com//.%5CH263-overview%5Cgob" alt="image-20210812145340036"></p>
+<h3 id="宏块"><a href="#宏块" class="headerlink" title="宏块"></a>宏块</h3><p>每个GOB被分成宏块，每个宏块为16x16的亮度分量和 8x8的色度分量</p>
+<h2 id="H263支持的高级功能"><a href="#H263支持的高级功能" class="headerlink" title="H263支持的高级功能"></a>H263支持的高级功能</h2><p>H263支持 4种可选择的高级功能，标记在H263 header内，提供灵活的开关。</p>
+<h3 id="先进的预测模式（AP）Adanced-Prediction"><a href="#先进的预测模式（AP）Adanced-Prediction" class="headerlink" title="先进的预测模式（AP）Adanced Prediction:"></a>先进的预测模式（AP）Adanced Prediction:</h3><p>每宏块4个运动矢量</p>
+<p>交叠块运动补偿</p>
+<h3 id="P-B-frames"><a href="#P-B-frames" class="headerlink" title="P-B frames"></a>P-B frames</h3><p>和H264的B帧一样的功能，猜测就是这个时候H26x系列增加了B帧的功能</p>
+<h3 id="基于句法的算法编码模式（SAC）-syntax-based-Arithmetic-Coding"><a href="#基于句法的算法编码模式（SAC）-syntax-based-Arithmetic-Coding" class="headerlink" title="基于句法的算法编码模式（SAC） syntax-based Arithmetic Coding"></a>基于句法的算法编码模式（SAC） syntax-based Arithmetic Coding</h3><p>所有相应的ITU建议书的变长编/译码操作均用算术编/译码操作替代</p>
+<h3 id="非受限运动矢量模式-unrestricted-motion-vectors"><a href="#非受限运动矢量模式-unrestricted-motion-vectors" class="headerlink" title="非受限运动矢量模式 unrestricted motion vectors"></a>非受限运动矢量模式 unrestricted motion vectors</h3><p>运动矢量的范围和供编码运动矢量差分所使用的VLC表依赖于图像帧头的PLUSPTYPE场是否存在。当PLUSPTYPE存在时，运动矢量的范围也依赖于图像尺寸和图像帧头中UUI场的值</p>
+<h2 id="H263的句法语义"><a href="#H263的句法语义" class="headerlink" title="H263的句法语义"></a>H263的句法语义</h2><p>这里仅简单介绍部分后续在rtp封包中有使用的，如果有需要请看ITU官方文档</p>
+<h3 id="图像层"><a href="#图像层" class="headerlink" title="图像层"></a>图像层</h3><p>每帧图像数据由图像头和跟随的块组或截面数据组成，最后跟随着任选的序列结束码和填充比特。其结构在图7中显示，其中该图像不包括任选的PLUSPTYPE数据场，只要由CPM指示，PSBI就存在。只要PTYPE指示使用“PB帧”模式，TRB和DBQUANT就存在（除非PLUSPTYPE场存在并在那点指示使用<br>DBQUANT）。<br>如PTYPE的比特6-8中所指示的那样，任选的PLUSPTYPE场存在。只要存在，比特流中就包括一个附加的数据集，该数据集立即紧随PTYPE并且优先于PQUANT。另外，当PLUSPTYPE存在时，在图像头部中CPM和PSBI场前移，以至它们立即出现在PLUSPTYPE之后，而不是定位在PQUANT之后。跟随PLUSPTYPE的附加数据格式在图8中显示。PLUSPTYPE之后在此附加图像头部数据中所有场均为任选的，依赖于在PLUSPTYPE中它们的存在是否被指明。当使用截面结构模式时（见附件K），对图7中所示的GOB位置以截面替代。<br>PSUPP和PEI的组合可以不存在，并且一旦存在可以重复。EOS和EOSBS+ESBI可以不存在，而仅当EOS或EOSBS存在时，ESTUF才可以存在。EOS不应被重复，除非每对EOS码之间至少出现一个图像起始码。下线的图像其图像头部不传输。</p>
+<p><img src="/.com//.%5CH263-overview%5Cplusptype" alt="image-20210812160422880"></p>
+<p>PSC:</p>
+<p>PSC是22比特字。它的值为0000 0000 0000 0000 1 00000。所有图像起始码应字节定位。</p>
+<p>PTYPE（变长）：</p>
+<p>— 比特1：总是“1”，为避免起始码仿真。<br>— 比特2：总是“0”，为同ITU-T H.261建议书区分。<br>— 比特3：分屏指示符，“0”断，“1”通。<br>— 比特4：文件摄像指示符，“0”断，“1”通。<br>— 比特5：全图像冻结释放，“0”断，“1”通。<br>— 比特6-8：源格式，“000”禁用，“001”子QCIF，“010”QCIF，“011”CIF，“100”4CIF，“101”16CIF，“110”保留，“111”扩展的PTYPE。若比特6-8不等于指示扩展的PTYPE（PLUSPTYPE）的“111”，则下列五个比特在PTYPE中也存在：<br>— 比特9：图像编码类型，“0”INTRA（I图像），“1”INTER（P图像）。<br>— 比特10：任选的非受限运动矢量模式（见附件D），“0”断，“1”通。<br>— 比特11：任选的基于句法的算术编码模式（见附件E），“0”断，“1”通。<br>— 比特12：任选的先进的预测模式（见附件F），“0”断，“1”通。<br>— 比特13：任选的PB帧模式（见附件G），“0”正常的I或P图像，“1”PB帧。</p>
+<p>ESTUF：</p>
+<p>填充，由少于8个零比特组成的可变长码字。编码器可在EOS码字之前直接插入此码字。若必要，编码器应插入该码字以实现EOSBS码字之前的直接强制字节定位。若ESTUF存在，则ESTUF的最后比特应是字节的最后（最低有效）比特，以致EOS或EOSBS码字的起始被字节定位。</p>
+<p>EOS：</p>
+<p>序列结束，22比特码字。它的值是0000 0000 0000 0000 1 11111。编码器决定是否插入此码字。EOS可以被字节定位。这可通过EOS码之前插入ESTUF来实现，以致EOS码的首比特是字节的第一（最高有效）比特。EOS不应重复除非每对EOS代码之间至少出现一个图像起始码。</p>
+<p>PSTUF：</p>
+<p>填充，由少于8个零比特组成的可变长码字。编码器插入此码字可供下一个PSC的字节定位。PSTUF的最后比特应是字节的最后（最低有效）比特，以致H.263比特流中包括PSTUF的视频比特流从第一比特起是8比特的一个倍数。译码器应设计丢弃PSTUF。<br>若为了某种理由，在某个确定的时间周期编码器停止编码图像并在以后恢复编码，则编码器停止之前应传输PSTUF，以防止先前图像的最后的最多7比特未被发送，直到编码器恢复编码时为止。</p>
+<h3 id="块组层"><a href="#块组层" class="headerlink" title="块组层"></a>块组层</h3><p><img src="/.com//.%5CH263-overview%5Cgoblayer" alt="image-20210812161034995"></p>
+<p>GSTUF:</p>
+<p>填充,由少于8个零比特组成的可变长码字。在GBSC码字之前，编码器可直接插入此码字。若GSTUF存在，GSTUF的最后比特应是字节的最后（最低有效）比特，以致GBSC码字的起始被字节定位。译码器应设计为丢弃GSTUF。</p>
+<p>GBSC:</p>
+<p>块组起始码,为一个17比特字。它的值是0000 0000 0000 0000 1。GOB起始码可以字节定位。通过起始码前插入GSTUF能够实现字节定位以致起始码的首比特是字节的第一（最高有效）比特。</p>
+<p>GN:</p>
+<p>块组编号</p>
+<h3 id="宏块层"><a href="#宏块层" class="headerlink" title="宏块层"></a>宏块层</h3><p><img src="/.com//.%5CH263-overview%5Cmblayer" alt="image-20210812161237410"></p>
+<p>DQUANT: </p>
+<p>量化器信息</p>
+<p>MVD,MVD2,MVD3,MVD4:</p>
+<p>所有inter宏块都有的运动矢量信息,在payload head当中有使用,但不是直接使用数值,有经过一定的转化</p>
+<h2 id="H263的PAYLOAD-HEAD"><a href="#H263的PAYLOAD-HEAD" class="headerlink" title="H263的PAYLOAD HEAD"></a>H263的PAYLOAD HEAD</h2><p>当将H263的流打包发送时，需要将比特流打包成RTP协议，此时需要将H263流之前增加一个payload header标识一些数据，再添加RTP header进行rtp封包。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">:    RTP Header                                                 :</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">:    H.263+ Payload Header                                      :</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">:    H.263+ Compressed Data Stream                              :</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<h3 id="h263"><a href="#h263" class="headerlink" title="h263+"></a>h263+</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|   RR    |P|V|   PLEN    |PEBIT|</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<p>h263+ 的包头如上，其中</p>
+<p>RR：5bit</p>
+<p>预留位，需要被设成0</p>
+<p>P：1bit</p>
+<p>表示视频开始或者视频结束，需要被置1</p>
+<p>V：1bit</p>
+<p>表示 video redundancy coding 功能的开启，如果开启会有8bit的VRC信息紧跟payload header</p>
+<p>PLEN：6bit</p>
+<p>附加信息的长度，如果携带附件信息，如果便宜这个长度的地址才能找到图像的start code，如果没有附件信息PLEN设成0</p>
+<p>PEBIT：3bit</p>
+<p>表示 picture head最后一个字节需要忽略的bit数，如果PLEN是0的话，这个也是0</p>
+<h3 id="H263"><a href="#H263" class="headerlink" title="H263"></a>H263</h3><p>H263 有3种payload header，分别教Mode A，B和C</p>
+<p>当一个rtp包从一个图像头开始的时候，使用Mode A； 当RTP包从图像中间开始，且不支持PB帧的时候，使用Mode B； 当RTP包从图像中间开始，又支持PB帧的时候，使用ModeC</p>
+<h4 id="Mode-A"><a href="#Mode-A" class="headerlink" title="Mode A"></a>Mode A</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|F|P|SBIT |EBIT | SRC |I|U|S|A|R      |DBQ| TRB |    TR         |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<p>F: 1bit</p>
+<p>F=0， Mode A; F=1. Mode B 或者 C</p>
+<p>P： 1bit</p>
+<p>P=0， ModeB； P=1 ,Mode C</p>
+<p>SBIT： 3bit</p>
+<p>第一个字节需要忽略的位数</p>
+<p>EBIT：3bit</p>
+<p>最后一个字节需要忽略的位数</p>
+<p>SRC：3bit</p>
+<p>源图像的格式，为H263 图像层句法的6，7，8位</p>
+<p>I:1bit</p>
+<p>I=0， 帧内编码； I=1，帧间编码</p>
+<p>U：1bit</p>
+<p>是否使用了非受限的运动矢量功能，四种高级高能之一</p>
+<p>S:1bit</p>
+<p>是否使用了SAC功能，4种高级功能之一</p>
+<p>A: 1bit</p>
+<p>是否使用了AP功能，4种高级功能之一</p>
+<p>R:4bit</p>
+<p>预留，需要设成0</p>
+<p>DBQ： 2bit</p>
+<p>PB帧没有使用的话设0， PB帧使用的话设置成DBQUANT句法的数值</p>
+<p>TRB： 3bit</p>
+<p>PB帧没有使用的话设0， PB帧使用的话设置B帧的时域参考信息</p>
+<p>TR:3bit</p>
+<p>PB帧没有使用的话设0， PB帧使用的话设置P帧的时域参考信息</p>
+<h4 id="Mode-B"><a href="#Mode-B" class="headerlink" title="Mode B"></a>Mode B</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|F|P|SBIT |EBIT | SRC | QUANT   |  GOBN   |   MBA           |R  |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|I|U|S|A| HMV1        | VMV1        | HMV2        | VMV2        |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<p>QUANT: 5bit</p>
+<p>这个包起始的宏块句法GQUANT 的量化信息，如果起始位是GOB头的话就设成0</p>
+<p>GOBN：5bit</p>
+<p>这个包起始位置的GOB序号</p>
+<p>MBA： 9bit</p>
+<p>第一个MB在当前GOB的地址</p>
+<p>HMV1，VMV1，HMV2，VMV2： 每个都是7bit</p>
+<p>这个包第一个宏块的对应MVD,MVD1,MVD2,MVD3的信息</p>
+<h4 id="Mode-C"><a href="#Mode-C" class="headerlink" title="Mode C"></a>Mode C</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|F|P|SBIT |EBIT | SRC | QUANT   |  GOBN   |   MBA           |R  |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|I|U|S|A| HMV1        | VMV1        | HMV2        | VMV2        |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">| RR                                  |DBQ| TRB |    TR         |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<p>是Mode A和Mode B的结合，所有的信息在前面的介绍都能找到</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>编解码</tag>
+        <tag>H263</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H264的长期参考帧LTR</title>
+    <url>/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/</url>
+    <content><![CDATA[<p>视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧</p>
+<p>参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  </p>
+<p>短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>提高图像质量:</p>
+<p>高质量的帧可以提高后续帧的图像质量,在解码内容相似的帧时,可以使参考帧保持更长的时间,这样可以避免稳定情况下传输.</p>
+<p>抗网损:</p>
+<p>在网损和解码错误的情况下会导致解码器使用到一些低质量的宏块,这些宏块会影响后续帧的画面质量,甚至产生一些呼吸效应.</p>
+<p>当缓存了一个LTR帧的时候,解码器就可以从LTR帧获取图像信息,从而保持画面的高质量</p>
+<h2 id="参考帧重排序-reordering"><a href="#参考帧重排序-reordering" class="headerlink" title="参考帧重排序(reordering)"></a>参考帧重排序(reordering)</h2><p>可能看到这里有点懵,突然出现的参考帧重排序是什么?为什么要重排序?一点一点说</p>
+<p>我们知道编码一个帧, 这个帧必定是要参考某一个帧或者某几个帧,计算运动矢量,残差数据等等. </p>
+<p>那么解码器和编码器就需要同时缓存这些相同得特定帧。 这里就引出一个概念DPB Decoded picture buffer， 也就是我们说得参考帧队列。</p>
+<p>编码器 和 解码器同时会缓存一样的参考帧队列，而短期参考帧和长期参考帧在参考帧队列里面是经过排序的，排序的主要原则是：</p>
+<p>短期参考帧比长期参考帧索引值小；<br>短期参考帧根据 PicNum 值降序排列<br>长期参考帧LongTermPicNum 值升序排列<br>例如，当三个标记为”用于短期参考”的参考帧对应 PicNum分别为300，302，303 ，两个标记为”用于长期参考”的参考帧对应LongTermPicNum=0，3 。那么初始化列表顺序为：<br>RefPicList0[0] 设置为 PicNum = 303,<br>RefPicList0[1] 设置为 PicNum = 302,<br>RefPicList0[2] 设置为 PicNum = 300,<br>RefPicList0[3] 设置为 LongTermPicNum = 0,<br>RefPicList0[4] 设置为 LongTermPicNum = 3.</p>
+<p>那么当解码器接收到一个帧的时候，这个帧的位置并不一定是在队列靠前的位置，重排序就是把参考到的帧放在队列头，让解码器能够迅速拿到这些参考帧信息。</p>
+<p>所以这里得出一个结论， 需要重排序的帧就是当前这个帧所要参考的帧。</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cdpb" alt="image-20210813195526512"></p>
+<p>那么解码器怎么知道接收到的这个帧参考的是哪一个帧呢.</p>
+<p>H264的slice head 句法中就做了记录.</p>
+<p>句法中,num_ref_idx_l0_active_minus1 - 1表示这个P帧的参考帧数目</p>
+<p><strong>ref_pic_list_modification</strong> 下记录了这个帧的参考帧信息</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creordering-synatx" alt="image-20210812200859723"></p>
+<p><strong>ref_pic_list_reordering_flag_l0</strong> 指明了是否有重排序的操作,如果有的话就会有一系列句法来执行</p>
+<p><strong>reordering_of_pic_nums_idc</strong> 指明执行哪种重排序操作,对应操作如下</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creorder-operate" alt="image-20210812201149828"></p>
+<p>直到reordering_of_pic_nums_idc 为3的时候跳出。</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creorder-pipeline" alt="image-20210814093835707"></p>
+<p>从上表可以看出：</p>
+<p>当reordering_of_pic_nums_idc为0或者1时， 表明当前帧参考了一个短期参考帧， abs_diff_pic_num_minus1+1表示这个参考帧和当前帧的序号差。</p>
+<p>当reordering_of_pic_nums_idc为2的时候，表明当前帧参考了一个长期参考帧，long_term_pic_num 表示了这个长期参考帧的序号。</p>
+<p>注意：</p>
+<p>一个帧可以参考多个短期参考帧和长期参考帧，也就是说这个句法的while循环内可以存在多个reordering_of_pic_nums_idc = 0 的情况或者多个reordering_of_pic_nums_idc = 2的情况。同样，一个帧也可以同时参考短期参考帧和长期参考帧。</p>
+<h2 id="LTR的标记-marking"><a href="#LTR的标记-marking" class="headerlink" title="LTR的标记(marking)"></a>LTR的标记(marking)</h2><p>那么参考帧列表是怎么管理的呢？有些参考帧可能不使用了需要被移除队列，有些参考帧需要被加入队列。这些操作是怎么做的呢？</p>
+<p>H264的句法管参考帧的管理叫做参考帧的标记。通过Slice Header里面的dec_def_pic_marking 句法来控制。</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmarking-synatx" alt="image-20210814101038464"></p>
+<p><strong>no_output_of_prior_pics_flag</strong> 仅在当前图像是IDR 图像时出现这个句法元素，指明是否要将前面已解码的图像全部输出。</p>
+<p><strong>long_term_reference_flag</strong> 与上个图像一样，仅在当前图像是IDR 图像时出现这一句法元素。这个句法元素指明是否使用长期参考这个机制。如果取值为1，表明使用长期参考，并且每个IDR 图像被解码后自动成为长期参考帧，否则（取值为0），IDR 图像被解码后自动成为短期参考帧。</p>
+<p><strong>adaptive_ref_pic_marking_mode_flag</strong> 指明标记（marking）操作的模式</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmarking-opera" alt="image-20210814101443017"></p>
+<p>可以看出在短期参考帧的时候我们一般使用先入先出FIFO模式，而长期参考帧不支持这种模式，仅支持 自适应标记模式，其使用<strong>memory_management_control_operation</strong> (MMCO)指明操作的具体内容</p>
+<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmmco" alt="image-20210814101737689"></p>
+<p><strong>difference_of_pic_nums_minus1</strong> 当memory_management_control_operation 等于 3 或1 时，由 这个句法元素可以计算得到需要操作的图像在短期参考队列中的序号。参考帧队列中必须存在这个图像。</p>
+<p><strong>long_term_pic_num</strong> 当memory_management_control_operation 等于2 时， 从此句法元素得到所要操作的长期参考图像的序号。</p>
+<p><strong>long_term_frame_idx</strong> 当 memory_management_control_operation 等于3 或6 ，分配一个长期参考帧的序号给一个图像。</p>
+<p><strong>max_long_term_frame_idx_plus1</strong> 此句法元素减1 ， 指明长期参考队列的最大数目。</p>
+<p><strong>max_long_term_frame_idx_plus1</strong> 值的范围 0 to num_ref_frames。</p>
+<p>当某一帧图像需要被保存成一个长期参考帧的时候，我们需要令MMCO = 4，首先指明长期参考帧的最大数量，如果长期参考帧数量已经满了，需要令MMCO=2，将long_term_idx = ？ 的参考帧移除参考帧队列，？为某个长期参考帧的标记，需要自己设置移除哪一个。 再令MMCO=6，将当前帧存为一个长期参考帧，并且给当前帧标记一个long_term_idx，方便后续索引的操作。最后令MMCO=0结束循环</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>编解码</tag>
+        <tag>H264</tag>
+        <tag>LTR</tag>
+      </tags>
+  </entry>
 </search>

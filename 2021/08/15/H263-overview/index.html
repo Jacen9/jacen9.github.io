@@ -20,28 +20,40 @@
     var CONFIG = {"hostname":"jacen9.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="书屋">
-<meta property="og:url" content="http://jacen9.github.io/index.html">
+  <meta name="description" content="h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。 1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000. [TOC] 参考网址https:&#x2F;&#x2F;www.itu.int&#x2F;rec&#x2F;T-R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H263 overview">
+<meta property="og:url" content="http://jacen9.github.io/2021/08/15/H263-overview/index.html">
 <meta property="og:site_name" content="书屋">
+<meta property="og:description" content="h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。 1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000. [TOC] 参考网址https:&#x2F;&#x2F;www.itu.int&#x2F;rec&#x2F;T-R">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://jacen9.github.io/.com//h263-source-encode-frame.png">
+<meta property="og:image" content="http://jacen9.github.io/.com//.%5CH263-overview%5Cgob">
+<meta property="og:image" content="http://jacen9.github.io/.com//.%5CH263-overview%5Cplusptype">
+<meta property="og:image" content="http://jacen9.github.io/.com//.%5CH263-overview%5Cgoblayer">
+<meta property="og:image" content="http://jacen9.github.io/.com//.%5CH263-overview%5Cmblayer">
+<meta property="article:published_time" content="2021-08-15T10:26:08.000Z">
+<meta property="article:modified_time" content="2021-08-15T10:39:44.122Z">
 <meta property="article:author" content="JacenLiu">
+<meta property="article:tag" content="编解码">
+<meta property="article:tag" content="H263">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jacen9.github.io/.com//h263-source-encode-frame.png">
 
-<link rel="canonical" href="http://jacen9.github.io/">
+<link rel="canonical" href="http://jacen9.github.io/2021/08/15/H263-overview/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>书屋</title>
+  <title>H263 overview | 书屋</title>
   
 
 
@@ -167,136 +179,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jacen9.github.io/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JacenLiu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书屋">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/" class="post-title-link" itemprop="url">H264的长期参考帧LTR</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-08-15 18:41:01 / 修改时间：18:45:56" itemprop="dateCreated datePublished" datetime="2021-08-15T18:41:01+08:00">2021-08-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧</p>
-<p>参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  </p>
-<p>短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence</p>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>提高图像质量:</p>
-<p>高质量的帧可以提高后续帧的图像质量,在解码内容相似的帧时,可以使参考帧保持更长的时间,这样可以避免稳定情况下传输.</p>
-<p>抗网损:</p>
-<p>在网损和解码错误的情况下会导致解码器使用到一些低质量的宏块,这些宏块会影响后续帧的画面质量,甚至产生一些呼吸效应.</p>
-<p>当缓存了一个LTR帧的时候,解码器就可以从LTR帧获取图像信息,从而保持画面的高质量</p>
-<h2 id="参考帧重排序-reordering"><a href="#参考帧重排序-reordering" class="headerlink" title="参考帧重排序(reordering)"></a>参考帧重排序(reordering)</h2><p>可能看到这里有点懵,突然出现的参考帧重排序是什么?为什么要重排序?一点一点说</p>
-<p>我们知道编码一个帧, 这个帧必定是要参考某一个帧或者某几个帧,计算运动矢量,残差数据等等. </p>
-<p>那么解码器和编码器就需要同时缓存这些相同得特定帧。 这里就引出一个概念DPB Decoded picture buffer， 也就是我们说得参考帧队列。</p>
-<p>编码器 和 解码器同时会缓存一样的参考帧队列，而短期参考帧和长期参考帧在参考帧队列里面是经过排序的，排序的主要原则是：</p>
-<p>短期参考帧比长期参考帧索引值小；<br>短期参考帧根据 PicNum 值降序排列<br>长期参考帧LongTermPicNum 值升序排列<br>例如，当三个标记为”用于短期参考”的参考帧对应 PicNum分别为300，302，303 ，两个标记为”用于长期参考”的参考帧对应LongTermPicNum=0，3 。那么初始化列表顺序为：<br>RefPicList0[0] 设置为 PicNum = 303,<br>RefPicList0[1] 设置为 PicNum = 302,<br>RefPicList0[2] 设置为 PicNum = 300,<br>RefPicList0[3] 设置为 LongTermPicNum = 0,<br>RefPicList0[4] 设置为 LongTermPicNum = 3.</p>
-<p>那么当解码器接收到一个帧的时候，这个帧的位置并不一定是在队列靠前的位置，重排序就是把参考到的帧放在队列头，让解码器能够迅速拿到这些参考帧信息。</p>
-<p>所以这里得出一个结论， 需要重排序的帧就是当前这个帧所要参考的帧。</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cdpb" alt="image-20210813195526512"></p>
-<p>那么解码器怎么知道接收到的这个帧参考的是哪一个帧呢.</p>
-<p>H264的slice head 句法中就做了记录.</p>
-<p>句法中,num_ref_idx_l0_active_minus1 - 1表示这个P帧的参考帧数目</p>
-<p><strong>ref_pic_list_modification</strong> 下记录了这个帧的参考帧信息</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creordering-synatx" alt="image-20210812200859723"></p>
-<p><strong>ref_pic_list_reordering_flag_l0</strong> 指明了是否有重排序的操作,如果有的话就会有一系列句法来执行</p>
-<p><strong>reordering_of_pic_nums_idc</strong> 指明执行哪种重排序操作,对应操作如下</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creorder-operate" alt="image-20210812201149828"></p>
-<p>直到reordering_of_pic_nums_idc 为3的时候跳出。</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Creorder-pipeline" alt="image-20210814093835707"></p>
-<p>从上表可以看出：</p>
-<p>当reordering_of_pic_nums_idc为0或者1时， 表明当前帧参考了一个短期参考帧， abs_diff_pic_num_minus1+1表示这个参考帧和当前帧的序号差。</p>
-<p>当reordering_of_pic_nums_idc为2的时候，表明当前帧参考了一个长期参考帧，long_term_pic_num 表示了这个长期参考帧的序号。</p>
-<p>注意：</p>
-<p>一个帧可以参考多个短期参考帧和长期参考帧，也就是说这个句法的while循环内可以存在多个reordering_of_pic_nums_idc = 0 的情况或者多个reordering_of_pic_nums_idc = 2的情况。同样，一个帧也可以同时参考短期参考帧和长期参考帧。</p>
-<h2 id="LTR的标记-marking"><a href="#LTR的标记-marking" class="headerlink" title="LTR的标记(marking)"></a>LTR的标记(marking)</h2><p>那么参考帧列表是怎么管理的呢？有些参考帧可能不使用了需要被移除队列，有些参考帧需要被加入队列。这些操作是怎么做的呢？</p>
-<p>H264的句法管参考帧的管理叫做参考帧的标记。通过Slice Header里面的dec_def_pic_marking 句法来控制。</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmarking-synatx" alt="image-20210814101038464"></p>
-<p><strong>no_output_of_prior_pics_flag</strong> 仅在当前图像是IDR 图像时出现这个句法元素，指明是否要将前面已解码的图像全部输出。</p>
-<p><strong>long_term_reference_flag</strong> 与上个图像一样，仅在当前图像是IDR 图像时出现这一句法元素。这个句法元素指明是否使用长期参考这个机制。如果取值为1，表明使用长期参考，并且每个IDR 图像被解码后自动成为长期参考帧，否则（取值为0），IDR 图像被解码后自动成为短期参考帧。</p>
-<p><strong>adaptive_ref_pic_marking_mode_flag</strong> 指明标记（marking）操作的模式</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmarking-opera" alt="image-20210814101443017"></p>
-<p>可以看出在短期参考帧的时候我们一般使用先入先出FIFO模式，而长期参考帧不支持这种模式，仅支持 自适应标记模式，其使用<strong>memory_management_control_operation</strong> (MMCO)指明操作的具体内容</p>
-<p><img src="/.com//.%5CH264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR%5Cmmco" alt="image-20210814101737689"></p>
-<p><strong>difference_of_pic_nums_minus1</strong> 当memory_management_control_operation 等于 3 或1 时，由 这个句法元素可以计算得到需要操作的图像在短期参考队列中的序号。参考帧队列中必须存在这个图像。</p>
-<p><strong>long_term_pic_num</strong> 当memory_management_control_operation 等于2 时， 从此句法元素得到所要操作的长期参考图像的序号。</p>
-<p><strong>long_term_frame_idx</strong> 当 memory_management_control_operation 等于3 或6 ，分配一个长期参考帧的序号给一个图像。</p>
-<p><strong>max_long_term_frame_idx_plus1</strong> 此句法元素减1 ， 指明长期参考队列的最大数目。</p>
-<p><strong>max_long_term_frame_idx_plus1</strong> 值的范围 0 to num_ref_frames。</p>
-<p>当某一帧图像需要被保存成一个长期参考帧的时候，我们需要令MMCO = 4，首先指明长期参考帧的最大数量，如果长期参考帧数量已经满了，需要令MMCO=2，将long_term_idx = ？ 的参考帧移除参考帧队列，？为某个长期参考帧的标记，需要自己设置移除哪一个。 再令MMCO=6，将当前帧存为一个长期参考帧，并且给当前帧标记一个long_term_idx，方便后续索引的操作。最后令MMCO=0结束循环</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -312,10 +198,9 @@
       <meta itemprop="name" content="书屋">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/15/H263-overview/" class="post-title-link" itemprop="url">H263 overview</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          H263 overview
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -362,7 +247,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
+        <p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
 <p>1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.</p>
 <p>[TOC]</p>
 <h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a target="_blank" rel="noopener" href="https://www.itu.int/rec/T-REC-H.263-200501-I/en">https://www.itu.int/rec/T-REC-H.263-200501-I/en</a></p>
@@ -519,110 +404,44 @@
 
 <p>是Mode A和Mode B的结合，所有的信息在前面的介绍都能找到</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/" rel="tag"># 编解码</a>
+              <a href="/tags/H263/" rel="tag"># H263</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jacen9.github.io/2021/07/26/%E5%88%9D%E5%A7%8B%E4%B9%8B%E9%99%85/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JacenLiu">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书屋">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/26/%E5%88%9D%E5%A7%8B%E4%B9%8B%E9%99%85/" class="post-title-link" itemprop="url">初始之际</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-07-26 22:16:03 / 修改时间：23:15:10" itemprop="dateCreated datePublished" datetime="2021-07-26T22:16:03+08:00">2021-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/07/26/%E5%88%9D%E5%A7%8B%E4%B9%8B%E9%99%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/26/%E5%88%9D%E5%A7%8B%E4%B9%8B%E9%99%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这里于我而言它就像一个抽屉，收纳我所有的思考和情绪</p>
-<p>又像是一个舞台，让陌生人认识我和我想塑造的感官世界。</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/26/%E5%88%9D%E5%A7%8B%E4%B9%8B%E9%99%85/" rel="prev" title="初始之际">
+      <i class="fa fa-chevron-left"></i> 初始之际
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/15/H264%E7%9A%84%E9%95%BF%E6%9C%9F%E5%8F%82%E8%80%83%E5%B8%A7LTR/" rel="next" title="H264的长期参考帧LTR">
+      H264的长期参考帧LTR <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -669,6 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">参考网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E6%94%AF%E6%8C%81%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">H263支持的图像格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E7%9A%84%E7%BC%96%E7%A0%81%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">H263的编码流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E5%8F%A5%E6%B3%95%E5%88%86%E7%BA%A7%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">H263句法分级结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F"><span class="nav-number">4.1.</span> <span class="nav-text">图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GOB"><span class="nav-number">4.2.</span> <span class="nav-text">GOB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E5%9D%97"><span class="nav-number">4.3.</span> <span class="nav-text">宏块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E6%94%AF%E6%8C%81%E7%9A%84%E9%AB%98%E7%BA%A7%E5%8A%9F%E8%83%BD"><span class="nav-number">5.</span> <span class="nav-text">H263支持的高级功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E7%9A%84%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%BC%8F%EF%BC%88AP%EF%BC%89Adanced-Prediction"><span class="nav-number">5.1.</span> <span class="nav-text">先进的预测模式（AP）Adanced Prediction:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#P-B-frames"><span class="nav-number">5.2.</span> <span class="nav-text">P-B frames</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%8F%A5%E6%B3%95%E7%9A%84%E7%AE%97%E6%B3%95%E7%BC%96%E7%A0%81%E6%A8%A1%E5%BC%8F%EF%BC%88SAC%EF%BC%89-syntax-based-Arithmetic-Coding"><span class="nav-number">5.3.</span> <span class="nav-text">基于句法的算法编码模式（SAC） syntax-based Arithmetic Coding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%8F%97%E9%99%90%E8%BF%90%E5%8A%A8%E7%9F%A2%E9%87%8F%E6%A8%A1%E5%BC%8F-unrestricted-motion-vectors"><span class="nav-number">5.4.</span> <span class="nav-text">非受限运动矢量模式 unrestricted motion vectors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E7%9A%84%E5%8F%A5%E6%B3%95%E8%AF%AD%E4%B9%89"><span class="nav-number">6.</span> <span class="nav-text">H263的句法语义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%B1%82"><span class="nav-number">6.1.</span> <span class="nav-text">图像层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%97%E7%BB%84%E5%B1%82"><span class="nav-number">6.2.</span> <span class="nav-text">块组层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E5%9D%97%E5%B1%82"><span class="nav-number">6.3.</span> <span class="nav-text">宏块层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H263%E7%9A%84PAYLOAD-HEAD"><span class="nav-number">7.</span> <span class="nav-text">H263的PAYLOAD HEAD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h263"><span class="nav-number">7.1.</span> <span class="nav-text">h263+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H263"><span class="nav-number">7.2.</span> <span class="nav-text">H263</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mode-A"><span class="nav-number">7.2.1.</span> <span class="nav-text">Mode A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mode-B"><span class="nav-number">7.2.2.</span> <span class="nav-text">Mode B</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mode-C"><span class="nav-number">7.2.3.</span> <span class="nav-text">Mode C</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
