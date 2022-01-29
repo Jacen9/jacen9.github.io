@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ffmpeg常用命令</title>
-    <url>/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<span id="more"></span>
-<h2 id="播放yuv视频文件"><a href="#播放yuv视频文件" class="headerlink" title="播放yuv视频文件"></a>播放yuv视频文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffplay -video_size 1280x720 720p.yuv</span><br></pre></td></tr></table></figure>
-<h2 id="解码H264文件成yuv420p"><a href="#解码H264文件成yuv420p" class="headerlink" title="解码H264文件成yuv420p"></a>解码H264文件成yuv420p</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test_1080p.h264 -c:v rawvideo -pixel_format yuv420p out.yuv</span><br></pre></td></tr></table></figure>
-<h2 id="转换y4m文件成yuv文件"><a href="#转换y4m文件成yuv文件" class="headerlink" title="转换y4m文件成yuv文件"></a>转换y4m文件成yuv文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i xx.y4m -vsync 0 xx.yuv  -y</span><br></pre></td></tr></table></figure>
-<h2 id="截取文件的固定时间段"><a href="#截取文件的固定时间段" class="headerlink" title="截取文件的固定时间段"></a>截取文件的固定时间段</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4 -vcodec copy -acodec copy -ss 00:00:00 -to 00:39:00 test_cut.mp4 -y</span><br></pre></td></tr></table></figure>
-<h2 id="将文件缩放特定分辨率"><a href="#将文件缩放特定分辨率" class="headerlink" title="将文件缩放特定分辨率"></a>将文件缩放特定分辨率</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -s:v 1920x1080 -r 25 -i input.yuv -vf scale=960:540 -c:v rawvideo -pix_fmt yuv420p out.yuv  </span><br></pre></td></tr></table></figure>
-<h2 id="合并两个yuv"><a href="#合并两个yuv" class="headerlink" title="合并两个yuv"></a>合并两个yuv</h2><p>首先得确定两个yuv的格式是一样的</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type a.yuv b.yuv &gt; c.yuv</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>音视频</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H263入门的一些基础知识</title>
     <url>/H263-overview/</url>
     <content><![CDATA[<p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
@@ -246,6 +228,24 @@
         <tag>编解码</tag>
         <tag>H264</tag>
         <tag>LTR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ffmpeg常用命令</title>
+    <url>/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<span id="more"></span>
+<h2 id="播放yuv视频文件"><a href="#播放yuv视频文件" class="headerlink" title="播放yuv视频文件"></a>播放yuv视频文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffplay -video_size 1280x720 720p.yuv</span><br></pre></td></tr></table></figure>
+<h2 id="解码H264文件成yuv420p"><a href="#解码H264文件成yuv420p" class="headerlink" title="解码H264文件成yuv420p"></a>解码H264文件成yuv420p</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test_1080p.h264 -c:v rawvideo -pixel_format yuv420p out.yuv</span><br></pre></td></tr></table></figure>
+<h2 id="转换y4m文件成yuv文件"><a href="#转换y4m文件成yuv文件" class="headerlink" title="转换y4m文件成yuv文件"></a>转换y4m文件成yuv文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i xx.y4m -vsync 0 xx.yuv  -y</span><br></pre></td></tr></table></figure>
+<h2 id="截取文件的固定时间段"><a href="#截取文件的固定时间段" class="headerlink" title="截取文件的固定时间段"></a>截取文件的固定时间段</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4 -vcodec copy -acodec copy -ss 00:00:00 -to 00:39:00 test_cut.mp4 -y</span><br></pre></td></tr></table></figure>
+<h2 id="将文件缩放特定分辨率"><a href="#将文件缩放特定分辨率" class="headerlink" title="将文件缩放特定分辨率"></a>将文件缩放特定分辨率</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -s:v 1920x1080 -r 25 -i input.yuv -vf scale=960:540 -c:v rawvideo -pix_fmt yuv420p out.yuv  </span><br></pre></td></tr></table></figure>
+<h2 id="合并两个yuv"><a href="#合并两个yuv" class="headerlink" title="合并两个yuv"></a>合并两个yuv</h2><p>首先得确定两个yuv的格式是一样的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type a.yuv b.yuv &gt; c.yuv</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>音视频</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
       </tags>
   </entry>
   <entry>
