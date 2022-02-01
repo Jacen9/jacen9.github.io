@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>渔港小屋</title>
+  <icon>http://jacenliu.cn/icon.png</icon>
+  <subtitle>渔港有风，小屋有酒</subtitle>
+  <link href="http://jacenliu.cn/atom.xml" rel="self"/>
+  
+  <link href="http://jacenliu.cn/"/>
+  <updated>2022-01-26T15:08:16.000Z</updated>
+  <id>http://jacenliu.cn/</id>
+  
+  <author>
+    <name>Jacen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ffmpeg常用命令</title>
+    <link href="http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2022-01-26T01:44:41.000Z</published>
+    <updated>2022-01-26T15:08:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h2 id=&quot;播放yuv视频文件&quot;&gt;&lt;a href=&quot;#播放yuv视频文件&quot; class=&quot;headerlink&quot; title=&quot;播放yuv视频文件&quot;&gt;&lt;/a&gt;播放yuv视频文件&lt;/h2&gt;&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    
+    <category term="ffmpeg" scheme="http://jacenliu.cn/tags/ffmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>程序使用静态库中的静态全局变量</title>
+    <link href="http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/"/>
+    <id>http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</id>
+    <published>2022-01-15T13:29:38.000Z</published>
+    <updated>2022-01-28T12:03:09.418Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="语言" scheme="http://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="cmake" scheme="http://jacenliu.cn/tags/cmake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>H264的长期参考帧LTR</title>
+    <link href="http://jacenliu.cn/h264-ltr/"/>
+    <id>http://jacenliu.cn/h264-ltr/</id>
+    <published>2021-08-15T10:41:01.000Z</published>
+    <updated>2022-01-26T15:08:42.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧&lt;/p&gt;
+&lt;p&gt;参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  &lt;/p&gt;
+&lt;p&gt;短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
+    
+    <category term="LTR" scheme="http://jacenliu.cn/tags/LTR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>H263入门的一些基础知识</title>
+    <link href="http://jacenliu.cn/H263-overview/"/>
+    <id>http://jacenliu.cn/H263-overview/</id>
+    <published>2021-08-15T10:26:08.000Z</published>
+    <updated>2022-01-28T11:20:43.542Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。&lt;/p&gt;
+&lt;p&gt;1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H263" scheme="http://jacenliu.cn/tags/H263/"/>
+    
+  </entry>
+  
+</feed>
