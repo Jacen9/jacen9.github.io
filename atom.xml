@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>渔港小屋</title>
-  <icon>http://jacenliu.cn/icon.png</icon>
+  <icon>https://jacenliu.cn/icon.png</icon>
   <subtitle>渔港有风，小屋有酒</subtitle>
-  <link href="http://jacenliu.cn/atom.xml" rel="self"/>
+  <link href="https://jacenliu.cn/atom.xml" rel="self"/>
   
-  <link href="http://jacenliu.cn/"/>
+  <link href="https://jacenliu.cn/"/>
   <updated>2022-02-02T14:42:46.936Z</updated>
-  <id>http://jacenliu.cn/</id>
+  <id>https://jacenliu.cn/</id>
   
   <author>
     <name>Jacen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ffmpeg常用命令</title>
-    <link href="http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <link href="https://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2022-01-26T01:44:41.000Z</published>
     <updated>2022-02-02T14:42:46.936Z</updated>
     
@@ -35,17 +35,17 @@
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    <category term="音视频" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
     
-    <category term="ffmpeg" scheme="http://jacenliu.cn/tags/ffmpeg/"/>
+    <category term="ffmpeg" scheme="https://jacenliu.cn/tags/ffmpeg/"/>
     
   </entry>
   
   <entry>
     <title>程序使用静态库中的静态全局变量</title>
-    <link href="http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/"/>
-    <id>http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</id>
+    <link href="https://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/"/>
+    <id>https://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</id>
     <published>2022-01-15T13:29:38.000Z</published>
     <updated>2022-02-02T14:44:16.770Z</updated>
     
@@ -60,19 +60,19 @@
     
     
     
-    <category term="语言" scheme="http://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/"/>
+    <category term="语言" scheme="https://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/"/>
     
-    <category term="Cmake" scheme="http://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/Cmake/"/>
+    <category term="Cmake" scheme="https://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/Cmake/"/>
     
     
-    <category term="cmake" scheme="http://jacenliu.cn/tags/cmake/"/>
+    <category term="cmake" scheme="https://jacenliu.cn/tags/cmake/"/>
     
   </entry>
   
   <entry>
     <title>H264的长期参考帧LTR</title>
-    <link href="http://jacenliu.cn/h264-ltr/"/>
-    <id>http://jacenliu.cn/h264-ltr/</id>
+    <link href="https://jacenliu.cn/h264-ltr/"/>
+    <id>https://jacenliu.cn/h264-ltr/</id>
     <published>2021-08-15T10:41:01.000Z</published>
     <updated>2022-02-02T14:43:47.933Z</updated>
     
@@ -83,23 +83,23 @@
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    <category term="音视频" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="编解码" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
     
     
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="编解码" scheme="https://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
     
-    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
+    <category term="H264" scheme="https://jacenliu.cn/tags/H264/"/>
     
-    <category term="LTR" scheme="http://jacenliu.cn/tags/LTR/"/>
+    <category term="LTR" scheme="https://jacenliu.cn/tags/LTR/"/>
     
   </entry>
   
   <entry>
     <title>H263入门的一些基础知识</title>
-    <link href="http://jacenliu.cn/H263-overview/"/>
-    <id>http://jacenliu.cn/H263-overview/</id>
+    <link href="https://jacenliu.cn/H263-overview/"/>
+    <id>https://jacenliu.cn/H263-overview/</id>
     <published>2021-08-15T10:26:08.000Z</published>
     <updated>2022-02-02T09:31:40.582Z</updated>
     
@@ -109,14 +109,14 @@
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    <category term="音视频" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
     
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="编解码" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
     
     
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="编解码" scheme="https://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
     
-    <category term="H263" scheme="http://jacenliu.cn/tags/H263/"/>
+    <category term="H263" scheme="https://jacenliu.cn/tags/H263/"/>
     
   </entry>
   
