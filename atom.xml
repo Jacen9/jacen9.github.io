@@ -6,7 +6,7 @@
   <link href="https://jacenliu.cn/atom.xml" rel="self"/>
   
   <link href="https://jacenliu.cn/"/>
-  <updated>2022-02-02T14:42:46.936Z</updated>
+  <updated>2022-02-08T15:20:01.845Z</updated>
   <id>https://jacenliu.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>编解码相关标准&amp;论文合集</title>
+    <link href="https://jacenliu.cn/video-codec-doc/"/>
+    <id>https://jacenliu.cn/video-codec-doc/</id>
+    <published>2022-02-08T15:12:40.000Z</published>
+    <updated>2022-02-08T15:20:01.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。&lt;br&gt;所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新&lt;/p&gt;
+&lt;p&gt;主要分为编码评估,低码高清,码率控制和性能优化4个大类,</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="https://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>ffmpeg常用命令</title>

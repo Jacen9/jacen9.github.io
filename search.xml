@@ -188,28 +188,6 @@
       </tags>
   </entry>
   <entry>
-    <title>程序使用静态库中的静态全局变量</title>
-    <url>/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>写这篇文章的起因是由于最近使用了一个静态库，编译过程中报错的信息为<code>没有找到变量</code>，但是在静态库当中确实是有这个变量的声明和定义的，只是这个变量是一个static修饰的全局的变量。</p>
-<p>刚开始一直怀疑我链接错了静态库，由于工程比较大，一直在纠结路径问题。<br>后来直接加打印确认了我链接的静态库没有错，那就百思不得其解了，明明定义好的变量为何链接猴就消失了。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>查找了一天资料终于发现，在静态库中，如果使用了静态全局变量初始化数据，在链接过程中会优化掉这部分数据</p>
-<p>就会导致，程序链接了lib，但是实际上lib内的静态全局变量都没有被声明，所以源程序找不到这个变量也就正常了。</p>
-<p>当然十分不推荐静态库使用静态全局变量这种做法，实在太不安全了。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这种情况需要在程序链接lib的时候添加 WHOLEARCHIVE选项，再进行链接</p>
-<p>我通过在camke文件当中在链接之前添加以下两行解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_RELEASE &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_RELEASE&#125; -WHOLEARCHIVE:libpreenhance_MT&quot;)</span><br><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_DEBUG &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_DEBUG&#125; -WHOLEARCHIVE:libpreenhance_MTd&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>此时会将lib源程序中的所有符号都编译到lib里面，供程序调用</p>
-]]></content>
-      <categories>
-        <category>语言</category>
-        <category>Cmake</category>
-      </categories>
-      <tags>
-        <tag>cmake</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H264的长期参考帧LTR</title>
     <url>/h264-ltr/</url>
     <content><![CDATA[<p>视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧</p>
@@ -268,6 +246,115 @@
         <tag>编解码</tag>
         <tag>H264</tag>
         <tag>LTR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序使用静态库中的静态全局变量</title>
+    <url>/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>写这篇文章的起因是由于最近使用了一个静态库，编译过程中报错的信息为<code>没有找到变量</code>，但是在静态库当中确实是有这个变量的声明和定义的，只是这个变量是一个static修饰的全局的变量。</p>
+<p>刚开始一直怀疑我链接错了静态库，由于工程比较大，一直在纠结路径问题。<br>后来直接加打印确认了我链接的静态库没有错，那就百思不得其解了，明明定义好的变量为何链接猴就消失了。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>查找了一天资料终于发现，在静态库中，如果使用了静态全局变量初始化数据，在链接过程中会优化掉这部分数据</p>
+<p>就会导致，程序链接了lib，但是实际上lib内的静态全局变量都没有被声明，所以源程序找不到这个变量也就正常了。</p>
+<p>当然十分不推荐静态库使用静态全局变量这种做法，实在太不安全了。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这种情况需要在程序链接lib的时候添加 WHOLEARCHIVE选项，再进行链接</p>
+<p>我通过在camke文件当中在链接之前添加以下两行解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_RELEASE &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_RELEASE&#125; -WHOLEARCHIVE:libpreenhance_MT&quot;)</span><br><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_DEBUG &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_DEBUG&#125; -WHOLEARCHIVE:libpreenhance_MTd&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>此时会将lib源程序中的所有符号都编译到lib里面，供程序调用</p>
+]]></content>
+      <categories>
+        <category>语言</category>
+        <category>Cmake</category>
+      </categories>
+      <tags>
+        <tag>cmake</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编解码相关标准&amp;论文合集</title>
+    <url>/video-codec-doc/</url>
+    <content><![CDATA[<p>最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。<br>所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新</p>
+<p>主要分为编码评估,低码高清,码率控制和性能优化4个大类, 把最近今天有留底的更新上,后续慢慢补充</p>
+<h2 id="编码评估"><a href="#编码评估" class="headerlink" title="编码评估"></a>编码评估</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><ul>
+<li><strong>Calculation of average coding esociency based on subjective quality scores</strong></li>
+</ul>
+<p>该文章提出了BD rate的评估方法,目前业界通用</p>
+<ul>
+<li><strong>Zvezdakova_Kulikov_Zvezdakov_Vatolin_BSQ_rate_color</strong></li>
+</ul>
+<p>该文章提出了BSQ-rate的评估方法,是对的BD-rate的修正, 是目前MSU主要使用的评估方法</p>
+<h3 id="客观"><a href="#客观" class="headerlink" title="客观"></a>客观</h3><ul>
+<li><strong>Image Quality Assessment: From Error Visibility to Structural Similarity</strong></li>
+</ul>
+<p>提出了SSIM的文章, 目前使用最多的客观评价标准</p>
+<h3 id="主观"><a href="#主观" class="headerlink" title="主观"></a>主观</h3><ul>
+<li><p><strong>R-REC-BT.500-14-201910-I!!PDF-C</strong></p>
+</li>
+<li><p><strong>R-REC-BT.1788-0-200701-W!!PDF-C</strong></p>
+</li>
+</ul>
+<p>ITU关于主观评价的标准文档, 提出了多种主观评价标准,单激励损伤,双激励损伤,双激励连续损伤等等</p>
+<p>一些看过的主观评价的论文:</p>
+<ul>
+<li>基于H_264的无参考视频质量评估方法的研究_周涛</li>
+</ul>
+<h2 id="低码高清"><a href="#低码高清" class="headerlink" title="低码高清"></a>低码高清</h2><p>使用更低的带宽，传输更高清的视频，一直是老板们的终极追求。在网络基础设施越来越好的今天，高清低码成为了衡量体验的重要指标，目前业界的主要研究方向大概分为几类：</p>
+<ol>
+<li>运动估计优化</li>
+<li>超分</li>
+<li>感知编码</li>
+<li>ROI编码</li>
+<li>跳帧</li>
+</ol>
+<p>在研究过程中收集了一系列的期刊论文进行参考比对，整理在此文档中，持续更新</p>
+<h3 id="运动估计优化"><a href="#运动估计优化" class="headerlink" title="运动估计优化"></a>运动估计优化</h3><p>由于编码过程中的主要消耗在于预测残差，运动估计越精确，所得到的残差越小，故所用的比特数就越少。</p>
+<h3 id="超分"><a href="#超分" class="headerlink" title="超分"></a>超分</h3><p>超分为一种后处理技术，假设接收端需要720p的画面，则发送端只需要将720p的画面下采样到360p进行编码，接收端通过上采样算法还原图像，则达到降低码率的效果</p>
+<h3 id="感知编码"><a href="#感知编码" class="headerlink" title="感知编码"></a>感知编码</h3><p>基于人眼的视觉特性HVS，人眼不同区域的感知也不相同，比如平坦区域的感知较为明显，而运动区域的感知不太敏感，人眼对不同亮度的感知也不尽相同。故借助这些特性，对量化参数qp进行调整，不敏感的区域增大qp，敏感的区域降低qp，可以降低编码的码率。</p>
+<p>x264中使用了自适应量化(AQ)和MB tree来达成感知编码的目的,业界也存在一些使用JND在实现感知编码</p>
+<h4 id="AQ"><a href="#AQ" class="headerlink" title="AQ"></a>AQ</h4><ul>
+<li><strong>A Novel Adaptive Quantization Method</strong></li>
+</ul>
+<p>一种新的AQ方式介绍</p>
+<h4 id="MBtree"><a href="#MBtree" class="headerlink" title="MBtree"></a>MBtree</h4><ul>
+<li><strong>Look-ahead coding considering rate distortion optimization</strong></li>
+</ul>
+<p>x264当中的lookahed原理介绍</p>
+<h4 id="JND"><a href="#JND" class="headerlink" title="JND"></a>JND</h4><ul>
+<li><p><strong>Improved estimation for just-noticeable visual distortion</strong></p>
+</li>
+<li><p><strong>基于区域划分的JND快速求取算法</strong></p>
+</li>
+<li><p><strong>H.264/AVC Video Coding Based on  Foveated  Just-Noticeable-Distortion  Model.  Circuits  and  Systems  for  Video</strong><br><strong>Technology, IEEE Transactions on, 2010, vol. 20, 806-819</strong></p>
+</li>
+</ul>
+<h3 id="ROI编码"><a href="#ROI编码" class="headerlink" title="ROI编码"></a>ROI编码</h3><p>人对图像每个区域的关注度不同,对图像的主要部分分配更多的比特,而背景区域分配更少的比特</p>
+<ul>
+<li><p><strong>田源,  于凤芹.人脸检测方法综述[ J] .  计算机安全, 2009( 5)</strong> </p>
+</li>
+<li><p><strong>Neural  network  face  detection.  Imaging Science Journal, 2005, 53 ( 2)</strong> </p>
+</li>
+<li><p><strong>Face  detection  using  discriminating  feature  analysis  and  support  vector  machine  in  video.  Proc.  of  the  17th  International  Conference  on  Pattern Recognition. Newark, NJ, USA: ICPR, 2004, 2: 407- 410</strong> </p>
+</li>
+</ul>
+<p>神经网络人脸检测</p>
+<ul>
+<li><p><strong>万丽，陈普春,  et  al.  基于  YCbCr  色彩空间的人脸检测技术研究.  现在电子技术，2011,77-81</strong> </p>
+</li>
+<li><p><strong>Comparative  performance of different skin chrominance models and chrominance spaces for the  automatic  detection  of  human  faces  in  color  images.  Proc.  Of  Conf.  on  Automatic  Face and Gesture Recognition. Grenoble, France</strong></p>
+</li>
+</ul>
+<p>基于肤色的人脸ROI区域检测</p>
+<h3 id="跳帧"><a href="#跳帧" class="headerlink" title="跳帧"></a>跳帧</h3><p>编码在时域相邻帧之间存在编码冗余,通过丢弃一些不必要的帧可以达到降低码率,提高质量的目标</p>
+<ul>
+<li><strong>H.264码率控制跳帧算法的优化_周全</strong></li>
+</ul>
+<h2 id="码率控制"><a href="#码率控制" class="headerlink" title="码率控制"></a>码率控制</h2><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2>]]></content>
+      <categories>
+        <category>音视频</category>
+        <category>编解码</category>
+      </categories>
+      <tags>
+        <tag>编解码</tag>
       </tags>
   </entry>
 </search>
