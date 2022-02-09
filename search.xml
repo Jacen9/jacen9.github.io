@@ -3,7 +3,7 @@
   <entry>
     <title>H263入门的一些基础知识</title>
     <url>/H263-overview/</url>
-    <content><![CDATA[<p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。</p>
 <p>1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.</p>
 <span id="more"></span>
 <h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a href="https://www.itu.int/rec/T-REC-H.263-200501-I/en">https://www.itu.int/rec/T-REC-H.263-200501-I/en</a></p>
@@ -172,7 +172,7 @@
   <entry>
     <title>ffmpeg常用命令</title>
     <url>/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><span id="more"></span>
 <h2 id="播放yuv视频文件"><a href="#播放yuv视频文件" class="headerlink" title="播放yuv视频文件"></a>播放yuv视频文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffplay -video_size 1280x720 720p.yuv</span><br></pre></td></tr></table></figure>
 <h2 id="解码H264文件成yuv420p"><a href="#解码H264文件成yuv420p" class="headerlink" title="解码H264文件成yuv420p"></a>解码H264文件成yuv420p</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test_1080p.h264 -c:v rawvideo -pixel_format yuv420p out.yuv</span><br></pre></td></tr></table></figure>
 <h2 id="转换y4m文件成yuv文件"><a href="#转换y4m文件成yuv文件" class="headerlink" title="转换y4m文件成yuv文件"></a>转换y4m文件成yuv文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i xx.y4m -vsync 0 xx.yuv  -y</span><br></pre></td></tr></table></figure>
@@ -190,7 +190,7 @@
   <entry>
     <title>H264的长期参考帧LTR</title>
     <url>/h264-ltr/</url>
-    <content><![CDATA[<p>视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧</p>
 <p>参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  </p>
 <p>短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence</p>
 <span id="more"></span>
@@ -249,31 +249,9 @@
       </tags>
   </entry>
   <entry>
-    <title>程序使用静态库中的静态全局变量</title>
-    <url>/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>写这篇文章的起因是由于最近使用了一个静态库，编译过程中报错的信息为<code>没有找到变量</code>，但是在静态库当中确实是有这个变量的声明和定义的，只是这个变量是一个static修饰的全局的变量。</p>
-<p>刚开始一直怀疑我链接错了静态库，由于工程比较大，一直在纠结路径问题。<br>后来直接加打印确认了我链接的静态库没有错，那就百思不得其解了，明明定义好的变量为何链接猴就消失了。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>查找了一天资料终于发现，在静态库中，如果使用了静态全局变量初始化数据，在链接过程中会优化掉这部分数据</p>
-<p>就会导致，程序链接了lib，但是实际上lib内的静态全局变量都没有被声明，所以源程序找不到这个变量也就正常了。</p>
-<p>当然十分不推荐静态库使用静态全局变量这种做法，实在太不安全了。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这种情况需要在程序链接lib的时候添加 WHOLEARCHIVE选项，再进行链接</p>
-<p>我通过在camke文件当中在链接之前添加以下两行解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_RELEASE &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_RELEASE&#125; -WHOLEARCHIVE:libpreenhance_MT&quot;)</span><br><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_DEBUG &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_DEBUG&#125; -WHOLEARCHIVE:libpreenhance_MTd&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>此时会将lib源程序中的所有符号都编译到lib里面，供程序调用</p>
-]]></content>
-      <categories>
-        <category>语言</category>
-        <category>Cmake</category>
-      </categories>
-      <tags>
-        <tag>cmake</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>编解码相关标准&amp;论文合集</title>
     <url>/video-codec-doc/</url>
-    <content><![CDATA[<p>最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。<br>所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。<br>所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新</p>
 <p>主要分为编码评估,低码高清,码率控制和性能优化4个大类, 把最近今天有留底的更新上,后续慢慢补充</p>
 <h2 id="编码评估"><a href="#编码评估" class="headerlink" title="编码评估"></a>编码评估</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><ul>
 <li><strong>Calculation of average coding esociency based on subjective quality scores</strong></li>
@@ -355,6 +333,28 @@
       </categories>
       <tags>
         <tag>编解码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序使用静态库中的静态全局变量</title>
+    <url>/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>写这篇文章的起因是由于最近使用了一个静态库，编译过程中报错的信息为<code>没有找到变量</code>，但是在静态库当中确实是有这个变量的声明和定义的，只是这个变量是一个static修饰的全局的变量。</p>
+<p>刚开始一直怀疑我链接错了静态库，由于工程比较大，一直在纠结路径问题。<br>后来直接加打印确认了我链接的静态库没有错，那就百思不得其解了，明明定义好的变量为何链接猴就消失了。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>查找了一天资料终于发现，在静态库中，如果使用了静态全局变量初始化数据，在链接过程中会优化掉这部分数据</p>
+<p>就会导致，程序链接了lib，但是实际上lib内的静态全局变量都没有被声明，所以源程序找不到这个变量也就正常了。</p>
+<p>当然十分不推荐静态库使用静态全局变量这种做法，实在太不安全了。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这种情况需要在程序链接lib的时候添加 WHOLEARCHIVE选项，再进行链接</p>
+<p>我通过在camke文件当中在链接之前添加以下两行解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_RELEASE &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_RELEASE&#125; -WHOLEARCHIVE:libpreenhance_MT&quot;)</span><br><span class="line">set(CMAKE_SHARED_LINKER_FLAGS_DEBUG &quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_DEBUG&#125; -WHOLEARCHIVE:libpreenhance_MTd&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>此时会将lib源程序中的所有符号都编译到lib里面，供程序调用</p>
+]]></content>
+      <categories>
+        <category>语言</category>
+        <category>Cmake</category>
+      </categories>
+      <tags>
+        <tag>cmake</tag>
       </tags>
   </entry>
 </search>
