@@ -6,7 +6,7 @@
   <link href="https://jacenliu.cn/atom.xml" rel="self"/>
   
   <link href="https://jacenliu.cn/"/>
-  <updated>2022-02-08T15:20:01.845Z</updated>
+  <updated>2022-02-10T16:10:26.711Z</updated>
   <id>https://jacenliu.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H264中frame_num相关的各种句法的含义和区别</title>
+    <link href="https://jacenliu.cn/framenum/"/>
+    <id>https://jacenliu.cn/framenum/</id>
+    <published>2022-02-10T15:56:31.000Z</published>
+    <updated>2022-02-10T16:10:26.711Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="https://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="https://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H264" scheme="https://jacenliu.cn/tags/H264/"/>
+    
+  </entry>
   
   <entry>
     <title>编解码相关标准&amp;论文合集</title>

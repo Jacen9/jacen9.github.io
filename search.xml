@@ -357,4 +357,129 @@
         <tag>cmake</tag>
       </tags>
   </entry>
+  <entry>
+    <title>H264中frame_num相关的各种句法的含义和区别</title>
+    <url>/framenum/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>要理解这些参数的含义要先从帧和场开始说起, 在编码中可能会产生两种视频帧, 一种叫做帧一种叫做场. 那么帧和场有什么区别呢?</p>
+<h2 id="帧和场"><a href="#帧和场" class="headerlink" title="帧和场"></a>帧和场</h2><h3 id="逐行扫描和隔行扫描"><a href="#逐行扫描和隔行扫描" class="headerlink" title="逐行扫描和隔行扫描"></a>逐行扫描和隔行扫描</h3><p>在早期电视的图像是通过扫描屏幕两次产生的,第二次扫描和第一次扫描是互相交错的,两次扫描叠加在一起正好是一幅图像</p>
+<p><img src="frame_gehang.png" alt="image-20220210100240673"></p>
+<p>我们注意下扫描方式可以分为 <strong>逐行扫描</strong>和<strong>隔行扫描</strong></p>
+<p><strong>逐行扫描一般情况下是帧编码</strong></p>
+<p><strong>隔行扫描可以是帧编码也可以是场编码</strong></p>
+<p><strong>在帧编码中，参考为帧图像，采用帧运动补偿，两个场是联合编码；在场编码中，参考为场图像，两个场是分别编码，采用场运动补偿。</strong></p>
+<h3 id="帧和场的编码方式"><a href="#帧和场的编码方式" class="headerlink" title="帧和场的编码方式"></a>帧和场的编码方式</h3><p>逐行扫描可以采用三种编码方式:</p>
+<p>1.固定帧编码(全帧)—-视频序列的全部帧始终采用帧编码方式。</p>
+<p>2.固定场编码（全场）– 视频序列中帧被分成两个场独立编码。编码规则：</p>
+<p>   a. I帧可编码成两个I场或一个I场和一个P场，即II、IP.</p>
+<p>   b. P帧可编码成两个P场或一个P场和一个B场，即PP、PB.</p>
+<p>  c. B帧可编码成两个B场，即BB.</p>
+<p>3.图像级帧、场自适应编码 (PAFF)/ 宏块级帧场自适应(MBAFF)</p>
+<p>  视频序列能被编码成一个帧或两个场，自适应选择原则是根据采用该种编码方式的每一帧的RD 值。</p>
+<p>隔行扫描也可以采用三种编码方式</p>
+<p> 1、将两场合并为一帧进行编码</p>
+<p> 2、将两场分别编码</p>
+<p> 3、将两场合并为一帧，但是在宏块级别上，将一个帧宏块划分为两个场宏块进行编码。</p>
+<p>以上前两种编码方式称为图像自适应帧/场编码（PAFF），第三种称为宏块自适应帧/场编码（MBAFF）。</p>
+<h3 id="帧和场的句法"><a href="#帧和场的句法" class="headerlink" title="帧和场的句法"></a>帧和场的句法</h3><p>帧和场的识别主要由三个句法元素识别他们分别在sps和slice header当中</p>
+<p>frame_mbs_only_flag ,mb_adaptive_frame_field_flag这两个元素存在sps中各自都只占1位</p>
+<p><img src="sps_mbs_flag.png" alt="image-20220210103546725"></p>
+<p> field_pic_flag 句法存在slice head 内, 也只占1位</p>
+<p><img src="sliceheader_frame_flag.png" alt="image-20220210103645703"></p>
+<p>这三个句法元素决定了一个片slice 使用了什么编码方式</p>
+<p><img src="slice_frame_judge.png" alt="image-20220210103807529"></p>
+<h2 id="frame-num"><a href="#frame-num" class="headerlink" title="frame_num"></a>frame_num</h2><p>frame_num是存在片头slice header内的句法,它标识了片的解码顺序.</p>
+<p>H.264 对frame_num 的值作了如下规定： 当参数集中的句法元素gaps_in_frame_num_value_allowed_flag 不为 1 时，每个图像的frame_num 值是它前一个参考帧的frame_num 值增加1。</p>
+<p>这里的描述 前一个参考帧的 frame_num值加一很关键, 它在一定程度上也标识了参考帧的序号, 我们举一个例子</p>
+<table>
+<thead>
+<tr>
+<th>图像序号</th>
+<th>图像类型</th>
+<th>是否用作参考</th>
+<th>frame_num</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>I</td>
+<td>是</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>P</td>
+<td>是</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>否</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>P</td>
+<td>是</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>B</td>
+<td>否</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>P</td>
+<td>是</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td>否</td>
+<td>4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>P</td>
+<td>是</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<p>我们可以看到第一帧I帧,frame_num 自动标记为0, 第二帧参考第一帧, 则第二帧的frame_num为 第一帧的frame_num+1= 1</p>
+<p>第三帧B参考第二帧P, 所以第三帧frame_num为 第二帧的frame_num+1 = 2</p>
+<p>第四帧参P帧参考了第二帧P, 所以第四真frame仍旧为第二帧的frame_num+1 = 2</p>
+<h2 id="FrameNumWrap"><a href="#FrameNumWrap" class="headerlink" title="FrameNumWrap"></a>FrameNumWrap</h2><p>frame_num是标识解码顺序的句法,但是在解码的时候并不是直接引用frame_num的值,而是用frame_num 计算得出PicNum. 而FrameNumWrap是由frame_num计算PicNum的一个中间值.</p>
+<p>想要计算FrameNumWrap我们首先得了解frame_num的最大值MaxFrameNum是多少</p>
+<p>SPS内的句法<strong>log2_max_frame_num_minus4</strong>标记了frame_num的最大值为MaxFrameNum </p>
+<p>​                                            MaxFrameNum = 2 x ( <strong>log2_max_frame_num_minus4</strong> + 4 )</p>
+<p>如果frame_num达到了最大值, 就会从0开始从新编号.</p>
+<ul>
+<li>如果参考帧的frame_num不大于当前帧的frame_num, 那么FrameNumWrap = FraemNum</li>
+<li>反之,FrameNumWrap = FrameNum - MaxFrameNum</li>
+</ul>
+<p>引入FrameNumWrap的原因是由于frame_num是在0到MaxFrameNum之间循环变化的，所以如果当前图像的frame_num正好处于临界值，比如0时，那前几帧（按解码顺序）参考图像的frame_num就会比当前图像的frame_num(此处假设是0)大，由此计算出来的PicNum也就会比CurrPicNum大，这在处理上会带来一些麻烦.</p>
+<h2 id="LongTermFrameIdx"><a href="#LongTermFrameIdx" class="headerlink" title="LongTermFrameIdx"></a>LongTermFrameIdx</h2><p>前文说到编码器和解码器其实共同维护了一个参考帧列表, 这个参考帧列表其实又分为短期参考帧列表和长期参考帧列表</p>
+<p>frame_num作为短期参考帧的唯一标识, 而LongTermFrameIdx为长期参考帧的唯一标识, 这个值是人为设定的</p>
+<h2 id="PicNum和LongTermPicNum"><a href="#PicNum和LongTermPicNum" class="headerlink" title="PicNum和LongTermPicNum"></a>PicNum和LongTermPicNum</h2><p>前文提到了frame_num和longtermframeidx分别作为短期参考帧和长期参考帧的唯一标识,但他们存在参考帧的队列中分别是以 PicNum和LongTermPicNum标记的, 原因是为了匹配场编码的需求,一个帧图像在解码端可能需要分解成两个场进行解码.</p>
+<p>所以PicNum是由frame_num计算, LongTermPicNum是由LongTermFrameIdx计算而来,具体计算方法为</p>
+<p><img src="PicNum_LongTermPicNum.png" alt="image-20220210192543191"></p>
+<h2 id="ref-id"><a href="#ref-id" class="headerlink" title="ref_id"></a>ref_id</h2><p>在编码其中, 编码器会给每一个参考帧都分配一个唯一标识, 用frame_num来标记.</p>
+<p>但是编码器在指定一帧图像的参考帧的时候并不是使用frame_num, 而是使用ref_id</p>
+<p><img src="refid_generate.png" alt="image-20220210153027595"></p>
+<p>由frame_num到PicNum主要是兼容场编码的需要, 在场解码的时候一个帧需要分解成两个场对;</p>
+<p>而从PicNum到ref_id是为了能够节省码流,因为PicNum通常都比较大, 在帧间预测的时候,每个运动矢量都需要指明参考帧的标识,如果用PicNum占用太多比特了.</p>
+<p>编码器和解码器中会同步维护一个序列,这个序列存放着目前所有备用的参考帧, 而参考帧在这个队列中的序号就是ref_id</p>
+]]></content>
+      <categories>
+        <category>音视频</category>
+        <category>编解码</category>
+      </categories>
+      <tags>
+        <tag>编解码</tag>
+        <tag>H264</tag>
+      </tags>
+  </entry>
 </search>
