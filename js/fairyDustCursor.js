@@ -1,5 +1,4 @@
 (function fairyDustCursor() {
-
   var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
   var width = window.innerWidth;
   var height = window.innerHeight;
@@ -11,12 +10,10 @@
     loop();
   }
 
-  // Bind events that are needed
   function bindEvents() {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('touchmove', onTouchMove);
     document.addEventListener('touchstart', onTouchMove);
-
     window.addEventListener('resize', onWindowResize);
   }
 
@@ -36,7 +33,6 @@
   function onMouseMove(e) {
     cursor.x = e.clientX;
     cursor.y = e.clientY;
-
     addParticle( cursor.x, cursor.y, possibleColors[Math.floor(Math.random()*possibleColors.length)]);
   }
 
@@ -47,18 +43,15 @@
   }
 
   function updateParticles() {
-
     for( var i = 0; i < particles.length; i++ ) {
       particles[i].update();
     }
-
     for( var i = particles.length -1; i >= 0; i-- ) {
       if( particles[i].lifeSpan < 0 ) {
         particles[i].die();
         particles.splice(i, 1);
       }
     }
-
   }
 
   function loop() {
@@ -67,12 +60,11 @@
   }
 
   function Particle() {
-
     this.character = "*";
-    this.lifeSpan = 120; //ms
-    this.initialStyles ={
+    this.lifeSpan = 120;
+    this.initialStyles = {
       "position": "fixed",
-      "top": "0", //必须加
+      "top": "0",
       "display": "block",
       "pointerEvents": "none",
       "z-index": "10000000",
@@ -81,21 +73,16 @@
     };
 
     this.init = function(x, y, color) {
-
       this.velocity = {
         x:  (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
         y: 1
       };
-
       this.position = {x: x - 10, y: y - 20};
       this.initialStyles.color = color;
-      console.log(color);
-
       this.element = document.createElement('span');
       this.element.innerHTML = this.character;
       applyProperties(this.element, this.initialStyles);
       this.update();
-
       document.body.appendChild(this.element);
     };
 
@@ -103,14 +90,12 @@
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
       this.lifeSpan--;
-
       this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px,0) scale(" + (this.lifeSpan / 120) + ")";
     }
 
     this.die = function() {
       this.element.parentNode.removeChild(this.element);
     }
-
   }
 
   function applyProperties( target, properties ) {
