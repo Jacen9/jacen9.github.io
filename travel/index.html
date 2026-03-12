@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2023-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-12T15:30:30.343Z">
+<meta property="article:modified_time" content="2026-03-12T16:05:24.060Z">
 <meta property="article:author" content="Jacen">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://jacenliu.cn/travel/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -52,7 +52,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-03-12 23:30:30'
+  postUpdate: '2026-03-13 00:05:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -422,6 +422,103 @@
   cursor: pointer;
 }
 
+/* 类型标签页 */
+.type-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.type-tab {
+  padding: 8px 16px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.type-tab:hover {
+  background: #e0e0e0;
+}
+
+.type-tab.active {
+  background: #1890ff;
+  color: #fff;
+}
+
+.type-tab .count {
+  margin-left: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* 紧凑卡片（用于美食、服饰等单图项目） */
+.compact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.compact-card {
+  background: #f8f8f8;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.compact-card .compact-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.compact-card .compact-img:hover {
+  transform: scale(1.02);
+}
+
+.compact-card .compact-info {
+  padding: 12px;
+}
+
+.compact-card .compact-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.compact-card .compact-comment {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.empty-state .icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
 @media (max-width: 768px) {
   .map-container {
     height: 350px;
@@ -698,6 +795,45 @@ async function initMap() {
 <script>
 // 旅行数据（从 data.json 加载）
 let travelData = { cities: [] };
+let currentModalCityIndex = null;  // 当前打开的城市索引
+
+// 项目类型定义
+const ITEM_TYPES = {
+  spot: { icon: '📍', label: '景点', style: 'card' },      // 卡片式，多图（含建筑）
+  food: { icon: '🍜', label: '美食', style: 'compact' },   // 紧凑式，单图
+  museum: { icon: '🏺', label: '博物', style: 'compact' }, // 紧凑式，单图
+  folk: { icon: '🎭', label: '民俗', style: 'card' }       // 卡片式，多图
+};
+
+// 获取城市的所有项目（兼容旧数据结构）
+function getCityItems(city) {
+  // 新结构：items 字段
+  if (city.items && city.items.length > 0) {
+    return city.items.map(item => ({
+      ...item,
+      type: item.type || 'spot'  // 默认为景点
+    }));
+  }
+  // 旧结构：spots 字段，全部视为景点
+  if (city.spots && city.spots.length > 0) {
+    return city.spots.map(spot => ({
+      ...spot,
+      type: 'spot'
+    }));
+  }
+  return [];
+}
+
+// 按类型分组项目
+function groupItemsByType(items) {
+  const groups = {};
+  items.forEach(item => {
+    const type = item.type || 'spot';
+    if (!groups[type]) groups[type] = [];
+    groups[type].push(item);
+  });
+  return groups;
+}
 
 // 获取已打卡的城市列表
 function getVisitedCities() {
@@ -720,11 +856,11 @@ async function loadTravelData() {
 function initStats() {
   const visited = getVisitedCities();
   const provinces = new Set(visited.map(v => v.province));
-  const spots = visited.reduce((sum, v) => sum + (v.spots ? v.spots.length : 0), 0);
+  const totalItems = visited.reduce((sum, v) => sum + getCityItems(v).length, 0);
   
   document.getElementById('total-count').textContent = visited.length;
   document.getElementById('province-count').textContent = provinces.size;
-  document.getElementById('spot-count').textContent = spots;
+  document.getElementById('spot-count').textContent = totalItems;
 }
 
 // 获取城市封面图片路径
@@ -755,6 +891,24 @@ function renderCountyCards() {
   
   container.innerHTML = visited.map((item, index) => {
     const cover = getCityCover(item);
+    const items = getCityItems(item);
+    const grouped = groupItemsByType(items);
+    
+    // 构建统计标签
+    const stats = [];
+    if (grouped.spot && grouped.spot.length > 0) {
+      stats.push(`📍景点${grouped.spot.length}`);
+    }
+    if (grouped.food && grouped.food.length > 0) {
+      stats.push(`🍜美食${grouped.food.length}`);
+    }
+    if (grouped.museum && grouped.museum.length > 0) {
+      stats.push(`🏺博物${grouped.museum.length}`);
+    }
+    if (grouped.folk && grouped.folk.length > 0) {
+      stats.push(`🎭民俗${grouped.folk.length}`);
+    }
+    
     return `
     <div class="county-card" onclick="openModal(${index})">
       <img class="cover" src="${cover.local}" alt="${item.name}" loading="lazy" 
@@ -764,7 +918,7 @@ function renderCountyCards() {
         <div class="name">${item.name}</div>
         <div class="date">📅 ${item.date || ''}</div>
         <div class="comment">${item.comment || ''}</div>
-        ${item.spots && item.spots.length > 0 ? `<div class="spot-count">📷 ${item.spots.length} 个景点</div>` : ''}
+        ${stats.length > 0 ? `<div class="spot-count">${stats.join(' ')}</div>` : ''}
       </div>
     </div>
   `}).join('');
@@ -776,8 +930,14 @@ function openModal(index) {
   const item = visited[index];
   if (!item) return;
   
+  currentModalCityIndex = index;  // 保存当前城市索引
   const cover = getCityCover(item);
   document.getElementById('modal-title').textContent = item.name;
+  
+  // 获取所有项目并按类型分组
+  const items = getCityItems(item);
+  const groupedItems = groupItemsByType(items);
+  const types = Object.keys(groupedItems);
   
   let bodyHtml = `
     <div style="margin-bottom: 20px;">
@@ -790,29 +950,26 @@ function openModal(index) {
     </div>
   `;
   
-  if (item.spots && item.spots.length > 0) {
-    bodyHtml += `<h4 style="margin-bottom: 16px;">打卡景点</h4>`;
-    item.spots.forEach(spot => {
-      // 获取景点本地图片路径
-      const spotPhotos = getSpotPhotos(item, spot);
+  // 如果有项目，渲染标签页
+  if (types.length > 0) {
+    // 标签页按钮
+    bodyHtml += `<div class="type-tabs">`;
+    types.forEach((type, i) => {
+      const typeInfo = ITEM_TYPES[type] || ITEM_TYPES.spot;
       bodyHtml += `
-        <div class="spot-card">
-          <div class="spot-header">
-            <div class="spot-name">${spot.name}</div>
-            <div class="spot-date">📅 ${spot.date}</div>
-          </div>
-          <div class="spot-comment">${spot.comment || ''}</div>
-          ${spotPhotos.length > 0 ? `
-            <div class="spot-photos">
-              ${spotPhotos.map(photo => `
-                <img src="${photo}" alt="${spot.name}" onclick="openPhotoViewer('${photo}')" loading="lazy"
-                     onerror="this.style.display='none'">
-              `).join('')}
-            </div>
-          ` : ''}
-        </div>
+        <button class="type-tab ${i === 0 ? 'active' : ''}" 
+                onclick="switchTab('${type}', this)"
+                data-type="${type}">
+          ${typeInfo.icon} ${typeInfo.label}<span class="count">${groupedItems[type].length}</span>
+        </button>
       `;
     });
+    bodyHtml += `</div>`;
+    
+    // 内容区域
+    bodyHtml += `<div id="tab-content">`;
+    bodyHtml += renderItemsByType(item, groupedItems[types[0]], types[0]);
+    bodyHtml += `</div>`;
   }
   
   document.getElementById('modal-body').innerHTML = bodyHtml;
@@ -820,47 +977,151 @@ function openModal(index) {
   document.body.style.overflow = 'hidden';
 }
 
-// 获取景点图片列表
-function getSpotPhotos(cityItem, spot) {
-  const province = cityItem.province;
-  const cityName = cityItem.name;
-  const spotName = spot.name;
+// 切换标签页
+function switchTab(type, btn) {
+  // 更新按钮状态
+  document.querySelectorAll('.type-tab').forEach(tab => tab.classList.remove('active'));
+  btn.classList.add('active');
   
-  // 构建本地图片目录路径
-  let basePath;
-  if (isMunicipality(province)) {
-    basePath = `/travel/photo/${province}/${spotName}/`;
-  } else {
-    basePath = `/travel/photo/${province}/${cityName}/${spotName}/`;
+  // 获取当前城市数据
+  const visited = getVisitedCities();
+  const item = visited[currentModalCityIndex];
+  if (!item) return;
+  
+  // 重新渲染内容
+  const items = getCityItems(item);
+  const groupedItems = groupItemsByType(items);
+  
+  document.getElementById('tab-content').innerHTML = renderItemsByType(item, groupedItems[type], type);
+}
+
+// 根据类型渲染项目列表
+function renderItemsByType(city, items, type) {
+  if (!items || items.length === 0) {
+    return `<div class="empty-state"><div class="icon">📭</div><div>暂无内容</div></div>`;
   }
   
-  // 如果 spot.photos 是数组，处理图片
-  if (spot.photos && Array.isArray(spot.photos) && spot.photos.length > 0) {
-    return spot.photos.map(photo => {
-      // 如果是完整URL，直接返回
+  const typeInfo = ITEM_TYPES[type] || ITEM_TYPES.spot;
+  
+  // 紧凑样式（美食、服饰、民俗）
+  if (typeInfo.style === 'compact') {
+    return `<div class="compact-grid">${items.map(it => renderCompactCard(city, it, type)).join('')}</div>`;
+  }
+  
+  // 卡片样式（景点、博物馆、建筑）
+  return items.map(it => renderFullCard(city, it)).join('');
+}
+
+// 渲染紧凑卡片
+function renderCompactCard(city, it, type) {
+  const typeInfo = ITEM_TYPES[type] || ITEM_TYPES.spot;
+  const photo = getFirstPhoto(city, it);
+  
+  return `
+    <div class="compact-card">
+      ${photo ? `
+        <img class="compact-img" src="${photo}" alt="${it.name}" loading="lazy"
+             onclick="openPhotoViewer('${photo}')"
+             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'compact-img\\' style=\\'display:flex;align-items:center;justify-content:center;background:#f0f0f0;font-size:40px;\\'>${typeInfo.icon}</div>'">
+      ` : `<div class="compact-img" style="display:flex;align-items:center;justify-content:center;background:#f0f0f0;font-size:40px;">${typeInfo.icon}</div>`}
+      <div class="compact-info">
+        <div class="compact-name">${it.name}</div>
+        ${it.comment ? `<div class="compact-comment">${it.comment}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// 渲染完整卡片
+function renderFullCard(city, it) {
+  const photos = getItemPhotos(city, it);
+  
+  return `
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-name">${it.name}</div>
+        ${it.date ? `<div class="spot-date">📅 ${it.date}</div>` : ''}
+      </div>
+      ${it.comment ? `<div class="spot-comment">${it.comment}</div>` : ''}
+      ${photos.length > 0 ? `
+        <div class="spot-photos">
+          ${photos.map(photo => `
+            <img src="${photo}" alt="${it.name}" onclick="openPhotoViewer('${photo}')" loading="lazy"
+                 onerror="this.style.display='none'">
+          `).join('')}
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+// 获取项目第一张图片
+function getFirstPhoto(city, item) {
+  const photos = getItemPhotos(city, item);
+  return photos.length > 0 ? photos[0] : null;
+}
+
+// 获取项目图片列表（支持不同类型）
+function getItemPhotos(cityItem, item) {
+  const province = cityItem.province;
+  const cityName = cityItem.name;
+  const itemName = item.name;
+  const type = item.type || 'spot';
+  
+  // 构建基础目录路径（城市目录）
+  let cityBasePath;
+  if (isMunicipality(province)) {
+    cityBasePath = `/travel/photo/${province}/`;
+  } else {
+    cityBasePath = `/travel/photo/${province}/${cityName}/`;
+  }
+  
+  // 美食/博物：图片直接放在城市目录下，自动使用 name.jpg
+  if (['food', 'museum'].includes(type)) {
+    // 支持自定义 photo 字段，或使用完整URL
+    if (item.photo) {
+      if (item.photo.startsWith('http://') || item.photo.startsWith('https://')) {
+        return [item.photo];
+      }
+      return [cityBasePath + item.photo];
+    }
+    // 默认使用 name.jpg
+    return [cityBasePath + itemName + '.jpg'];
+  }
+  
+  // 景点/民俗：图片放在项目同名目录下
+  const itemPath = cityBasePath + itemName + '/';
+  
+  // 如果 item.photos 是数组，处理图片
+  if (item.photos && Array.isArray(item.photos) && item.photos.length > 0) {
+    return item.photos.map(photo => {
       if (photo.startsWith('http://') || photo.startsWith('https://')) {
         return photo;
       }
-      // 否则拼接本地路径
-      return basePath + photo;
+      return itemPath + photo;
     });
   }
   
   // 如果指定了 photoCount，加载编号图片
-  if (spot.photoCount && spot.photoCount > 0) {
+  if (item.photoCount && item.photoCount > 0) {
     const photos = [];
-    for (let i = 1; i <= spot.photoCount; i++) {
-      photos.push(basePath + `${i}.jpg`);
+    for (let i = 1; i <= item.photoCount; i++) {
+      photos.push(itemPath + `${i}.jpg`);
     }
     return photos;
   }
   
-  // 默认尝试加载 1.jpg 到 10.jpg
+  // 自动加载 1.jpg ~ 10.jpg
   const defaultPhotos = [];
   for (let i = 1; i <= 10; i++) {
-    defaultPhotos.push(basePath + `${i}.jpg`);
+    defaultPhotos.push(itemPath + `${i}.jpg`);
   }
   return defaultPhotos;
+}
+
+// 保留旧函数名兼容
+function getSpotPhotos(cityItem, spot) {
+  return getItemPhotos(cityItem, spot);
 }
 
 function closeModal() {
@@ -921,7 +1182,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">语言</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"><span class="card-category-list-name">音视频</span><span class="card-category-list-count">5</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"><span class="card-category-list-name">编解码</span><span class="card-category-list-count">4</span></a></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/H263/" style="font-size: 1.1em; color: #999">H263</a> <a href="/tags/H264/" style="font-size: 1.3em; color: #99a1ac">H264</a> <a href="/tags/LTR/" style="font-size: 1.1em; color: #999">LTR</a> <a href="/tags/cmake/" style="font-size: 1.1em; color: #999">cmake</a> <a href="/tags/ffmpeg/" style="font-size: 1.1em; color: #999">ffmpeg</a> <a href="/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/" style="font-size: 1.5em; color: #99a9bf">编解码</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fa fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=UYshTws_RuqVDAx4WdV5RfkWoY6cK_KAk0bjxTvzjh4"></script></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">6</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">7.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-12T15:31:41.566Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Jacen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="379025025" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/H263/" style="font-size: 1.1em; color: #999">H263</a> <a href="/tags/H264/" style="font-size: 1.3em; color: #99a1ac">H264</a> <a href="/tags/LTR/" style="font-size: 1.1em; color: #999">LTR</a> <a href="/tags/cmake/" style="font-size: 1.1em; color: #999">cmake</a> <a href="/tags/ffmpeg/" style="font-size: 1.1em; color: #999">ffmpeg</a> <a href="/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/" style="font-size: 1.5em; color: #99a9bf">编解码</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fa fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=UYshTws_RuqVDAx4WdV5RfkWoY6cK_KAk0bjxTvzjh4"></script></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">6</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">7.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-12T16:07:18.019Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Jacen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="379025025" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
