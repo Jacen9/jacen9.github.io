@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>青羽川</title>
+  <icon>http://jacenliu.cn/icon.png</icon>
+  
+  <link href="http://jacenliu.cn/atom.xml" rel="self"/>
+  
+  <link href="http://jacenliu.cn/"/>
+  <updated>2022-02-10T16:10:26.000Z</updated>
+  <id>http://jacenliu.cn/</id>
+  
+  <author>
+    <name>Jacen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H264中frame_num相关的各种句法的含义和区别</title>
+    <link href="http://jacenliu.cn/H264-framenum/"/>
+    <id>http://jacenliu.cn/H264-framenum/</id>
+    <published>2022-02-10T15:56:31.000Z</published>
+    <updated>2022-02-10T16:10:26.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;要理解这些参数的含义要先从帧和场开始说起, 在编码中可能会产生两种视频帧, 一种叫做帧一种叫做场. 那么帧和场有什么区别呢?&lt;/p&gt;
+&lt;h2 id=&quot;帧和场&quot;&gt;&lt;a href=&quot;#帧和场&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编解码相关标准&amp;论文合集</title>
+    <link href="http://jacenliu.cn/%E7%BC%96%E8%A7%A3%E7%A0%81%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/"/>
+    <id>http://jacenliu.cn/%E7%BC%96%E8%A7%A3%E7%A0%81%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/</id>
+    <published>2022-02-08T15:12:40.000Z</published>
+    <updated>2022-02-08T15:20:01.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。&lt;br&gt;所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新&lt;/p&gt;
+&lt;p&gt;主要分为编码评估,低码高清,码率控制和性能优化4个大类,</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ffmpeg常用命令</title>
+    <link href="http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2022-01-26T01:44:41.000Z</published>
+    <updated>2026-03-12T13:20:16.012Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h2 id=&quot;播放yuv视频文件&quot;&gt;&lt;a href=&quot;#播放yuv视频文件&quot; class=&quot;headerlink&quot; title=&quot;播放yuv视频文件&quot;&gt;&lt;/a&gt;播放yuv视频文件&lt;/h2&gt;&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    
+    <category term="ffmpeg" scheme="http://jacenliu.cn/tags/ffmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>程序使用静态库中的静态全局变量</title>
+    <link href="http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/"/>
+    <id>http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</id>
+    <published>2022-01-15T13:29:38.000Z</published>
+    <updated>2025-08-26T15:00:30.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="语言" scheme="http://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="cmake" scheme="http://jacenliu.cn/tags/cmake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>H264的长期参考帧LTR</title>
+    <link href="http://jacenliu.cn/h264-ltr/"/>
+    <id>http://jacenliu.cn/h264-ltr/</id>
+    <published>2021-08-15T10:41:01.000Z</published>
+    <updated>2026-03-12T13:20:19.515Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧&lt;/p&gt;
+&lt;p&gt;参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  &lt;/p&gt;
+&lt;p&gt;短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
+    
+    <category term="LTR" scheme="http://jacenliu.cn/tags/LTR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>H263入门的一些基础知识</title>
+    <link href="http://jacenliu.cn/H263-overview/"/>
+    <id>http://jacenliu.cn/H263-overview/</id>
+    <published>2021-08-15T10:26:08.000Z</published>
+    <updated>2026-03-12T13:20:22.858Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。&lt;/p&gt;
+&lt;p&gt;1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    
+    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    
+    <category term="H263" scheme="http://jacenliu.cn/tags/H263/"/>
+    
+  </entry>
+  
+</feed>

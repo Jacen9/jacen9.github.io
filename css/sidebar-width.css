@@ -1,0 +1,21 @@
+/* 侧边栏宽度调整 */
+#aside-content {
+  width: 320px !important;
+}
+
+/* 文章区域调整 */
+#post #article-container,
+#page .page-content {
+  max-width: calc(100% - 340px) !important;
+}
+
+/* 移动端不应用 */
+@media (max-width: 768px) {
+  #aside-content {
+    width: auto !important;
+  }
+  #post #article-container,
+  #page .page-content {
+    max-width: 100% !important;
+  }
+}
