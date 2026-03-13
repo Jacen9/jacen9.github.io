@@ -6,7 +6,7 @@
   <link href="http://jacenliu.cn/atom.xml" rel="self"/>
   
   <link href="http://jacenliu.cn/"/>
-  <updated>2022-02-10T16:10:26.000Z</updated>
+  <updated>2026-03-13T14:18:27.342Z</updated>
   <id>http://jacenliu.cn/</id>
   
   <author>
@@ -17,69 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>H264中frame_num相关的各种句法的含义和区别</title>
-    <link href="http://jacenliu.cn/H264-framenum/"/>
-    <id>http://jacenliu.cn/H264-framenum/</id>
-    <published>2022-02-10T15:56:31.000Z</published>
-    <updated>2022-02-10T16:10:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;要理解这些参数的含义要先从帧和场开始说起, 在编码中可能会产生两种视频帧, 一种叫做帧一种叫做场. 那么帧和场有什么区别呢?&lt;/p&gt;
-&lt;h2 id=&quot;帧和场&quot;&gt;&lt;a href=&quot;#帧和场&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
-    
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
-    
-    
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
-    
-    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编解码相关标准&amp;论文合集</title>
-    <link href="http://jacenliu.cn/%E7%BC%96%E8%A7%A3%E7%A0%81%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/"/>
-    <id>http://jacenliu.cn/%E7%BC%96%E8%A7%A3%E7%A0%81%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E8%AE%BA%E6%96%87%E5%90%88%E9%9B%86/</id>
-    <published>2022-02-08T15:12:40.000Z</published>
-    <updated>2022-02-08T15:20:01.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;最近想要研究一些窄带高清的方法，在网上翻各种论文，突发发现以前都没有把一些经典的论文保存下来，现在要找都记不得名字了。&lt;br&gt;所以开一个帖子，将文章都整理记录下来，一点一点慢慢更新&lt;/p&gt;
-&lt;p&gt;主要分为编码评估,低码高清,码率控制和性能优化4个大类,</summary>
-        
-      
-    
-    
-    
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
-    
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
-    
-    
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ffmpeg常用命令</title>
-    <link href="http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://jacenliu.cn/ffmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2022-01-26T01:44:41.000Z</published>
-    <updated>2026-03-12T13:20:16.012Z</updated>
+    <title>注释（Comments）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_24_%E6%B3%A8%E9%87%8A/"/>
+    <id>http://jacenliu.cn/badsmell_24_%E6%B3%A8%E9%87%8A/</id>
+    <published>2025-12-06T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:27.342Z</updated>
     
     
       
@@ -87,92 +29,550 @@
         
         
     <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-&lt;h2 id=&quot;播放yuv视频文件&quot;&gt;&lt;a href=&quot;#播放yuv视频文件&quot; class=&quot;headerlink&quot; title=&quot;播放yuv视频文件&quot;&gt;&lt;/a&gt;播放yuv视频文件&lt;/h2&gt;&lt;figure</summary>
+&lt;h1 id=&quot;注释（Comments）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#注释（Comments）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
     
     
-    <category term="ffmpeg" scheme="http://jacenliu.cn/tags/ffmpeg/"/>
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
     
   </entry>
   
   <entry>
-    <title>程序使用静态库中的静态全局变量</title>
-    <link href="http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/"/>
-    <id>http://jacenliu.cn/%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80/</id>
-    <published>2022-01-15T13:29:38.000Z</published>
-    <updated>2025-08-26T15:00:30.054Z</updated>
+    <title>被拒绝的遗赠（Refused Bequest）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_23_%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E9%81%97%E8%B5%A0/"/>
+    <id>http://jacenliu.cn/badsmell_23_%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E9%81%97%E8%B5%A0/</id>
+    <published>2025-12-05T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:25.846Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;被拒绝的遗赠（Refused-Bequest）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#被拒绝的遗赠（Refused-Bequest）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
-    <category term="语言" scheme="http://jacenliu.cn/categories/%E8%AF%AD%E8%A8%80/"/>
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
     
     
-    <category term="cmake" scheme="http://jacenliu.cn/tags/cmake/"/>
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
     
   </entry>
   
   <entry>
-    <title>H264的长期参考帧LTR</title>
-    <link href="http://jacenliu.cn/h264-ltr/"/>
-    <id>http://jacenliu.cn/h264-ltr/</id>
-    <published>2021-08-15T10:41:01.000Z</published>
-    <updated>2026-03-12T13:20:19.515Z</updated>
+    <title>纯数据类（Data Class）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_22_%E7%BA%AF%E6%95%B0%E6%8D%AE%E7%B1%BB/"/>
+    <id>http://jacenliu.cn/badsmell_22_%E7%BA%AF%E6%95%B0%E6%8D%AE%E7%B1%BB/</id>
+    <published>2025-12-04T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:24.372Z</updated>
     
     
-    <summary type="html">&lt;p&gt;视频编码中为了实现压缩,通过缓存部分图片,通过帧和运动矢量结合生成新帧.  这些帧被叫做参考帧&lt;/p&gt;
-&lt;p&gt;参考帧以frame_num为索引查找,但是frame num是由最大值的,达到最大值后会被取模,如果frame num达到最大值后取模为0,就索引不到了,这个时候就需要另外一种标记方式,所以参考帧又分为长期参考帧和短期参考帧.  &lt;/p&gt;
-&lt;p&gt;短期参考帧称作STR short term refence,长期参考帧称作LTR long term refence&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;纯数据类（Data-Class）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#纯数据类（Data-Class）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot; title=&quot;纯数据类（Data</summary>
+        
+      
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
-    
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
     
     
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
     
-    <category term="H264" scheme="http://jacenliu.cn/tags/H264/"/>
-    
-    <category term="LTR" scheme="http://jacenliu.cn/tags/LTR/"/>
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
     
   </entry>
   
   <entry>
-    <title>H263入门的一些基础知识</title>
-    <link href="http://jacenliu.cn/H263-overview/"/>
-    <id>http://jacenliu.cn/H263-overview/</id>
-    <published>2021-08-15T10:26:08.000Z</published>
-    <updated>2026-03-12T13:20:22.858Z</updated>
+    <title>异曲同工的类（Alternative Classes with Different Interfaces）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_21_%E5%BC%82%E6%9B%B2%E5%90%8C%E5%B7%A5%E7%9A%84%E7%B1%BB/"/>
+    <id>http://jacenliu.cn/badsmell_21_%E5%BC%82%E6%9B%B2%E5%90%8C%E5%B7%A5%E7%9A%84%E7%B1%BB/</id>
+    <published>2025-12-03T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:22.733Z</updated>
     
     
-    <summary type="html">&lt;p&gt;h263 是ITU-T用于视频会议的编码标准，最初设计是为了h.324的系统进行传输。后来发现H263也可以用于 H323，H320，RTSP，SIP协议传输。&lt;/p&gt;
-&lt;p&gt;1998年新增了功能，出现了第二版H263v2，也叫H263+，H263-1998. 2000年出现了第三版，H263v3，也叫H263++，H263-2000.&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;异曲同工的类（Alternative-Classes-with-Different-Interfaces）-坏味道识别与重构实战指南&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
-    <category term="音视频" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
-    
-    <category term="编解码" scheme="http://jacenliu.cn/categories/%E9%9F%B3%E8%A7%86%E9%A2%91/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
     
     
-    <category term="编解码" scheme="http://jacenliu.cn/tags/%E7%BC%96%E8%A7%A3%E7%A0%81/"/>
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
     
-    <category term="H263" scheme="http://jacenliu.cn/tags/H263/"/>
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>过大的类（Large Class）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_20_%E8%BF%87%E5%A4%A7%E7%9A%84%E7%B1%BB/"/>
+    <id>http://jacenliu.cn/badsmell_20_%E8%BF%87%E5%A4%A7%E7%9A%84%E7%B1%BB/</id>
+    <published>2025-12-02T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:20.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;过大的类（Large-Class）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#过大的类（Large-Class）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内幕交易（Insider Trading）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_19_%E5%86%85%E5%B9%95%E4%BA%A4%E6%98%93/"/>
+    <id>http://jacenliu.cn/badsmell_19_%E5%86%85%E5%B9%95%E4%BA%A4%E6%98%93/</id>
+    <published>2025-12-01T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:19.004Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;内幕交易（Insider-Trading）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#内幕交易（Insider-Trading）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中间人（Middle Man）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_18_%E4%B8%AD%E9%97%B4%E4%BA%BA/"/>
+    <id>http://jacenliu.cn/badsmell_18_%E4%B8%AD%E9%97%B4%E4%BA%BA/</id>
+    <published>2025-11-30T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:17.520Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;中间人（Middle-Man）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#中间人（Middle-Man）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot; title=&quot;中间人（Middle</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>过长的消息链（Message Chains）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_17_%E8%BF%87%E9%95%BF%E7%9A%84%E6%B6%88%E6%81%AF%E9%93%BE/"/>
+    <id>http://jacenliu.cn/badsmell_17_%E8%BF%87%E9%95%BF%E7%9A%84%E6%B6%88%E6%81%AF%E9%93%BE/</id>
+    <published>2025-11-29T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:16.111Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;过长的消息链（Message-Chains）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#过长的消息链（Message-Chains）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>临时字段（Temporary Field）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_16_%E4%B8%B4%E6%97%B6%E5%AD%97%E6%AE%B5/"/>
+    <id>http://jacenliu.cn/badsmell_16_%E4%B8%B4%E6%97%B6%E5%AD%97%E6%AE%B5/</id>
+    <published>2025-11-28T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:14.636Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;临时字段（Temporary-Field）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#临时字段（Temporary-Field）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>夸夸其谈通用性（Speculative Generality）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_15_%E5%A4%B8%E5%A4%B8%E5%85%B6%E8%B0%88%E9%80%9A%E7%94%A8%E6%80%A7/"/>
+    <id>http://jacenliu.cn/badsmell_15_%E5%A4%B8%E5%A4%B8%E5%85%B6%E8%B0%88%E9%80%9A%E7%94%A8%E6%80%A7/</id>
+    <published>2025-11-27T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:13.015Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;夸夸其谈通用性（Speculative-Generality）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#夸夸其谈通用性（Speculative-Generality）-坏味道识别与重构实战指南&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冗赘的元素（Lazy Element）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_14_%E5%86%97%E8%B5%98%E7%9A%84%E5%85%83%E7%B4%A0/"/>
+    <id>http://jacenliu.cn/badsmell_14_%E5%86%97%E8%B5%98%E7%9A%84%E5%85%83%E7%B4%A0/</id>
+    <published>2025-11-26T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:11.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;冗赘的元素（Lazy-Element）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#冗赘的元素（Lazy-Element）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>循环语句（Loops）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_13_%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://jacenliu.cn/badsmell_13_%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</id>
+    <published>2025-11-25T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:09.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;循环语句（Loops）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#循环语句（Loops）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重复的switch（Repeated Switches）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_12_%E9%87%8D%E5%A4%8D%E7%9A%84switch/"/>
+    <id>http://jacenliu.cn/badsmell_12_%E9%87%8D%E5%A4%8D%E7%9A%84switch/</id>
+    <published>2025-11-24T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:04.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;重复的switch（Repeated-Switches）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#重复的switch（Repeated-Switches）-坏味道识别与重构实战指南&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基本类型偏执（Primitive Obsession）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_11_%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%81%8F%E6%89%A7/"/>
+    <id>http://jacenliu.cn/badsmell_11_%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%81%8F%E6%89%A7/</id>
+    <published>2025-11-23T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:02.703Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;基本类型偏执（Primitive-Obsession）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#基本类型偏执（Primitive-Obsession）-坏味道识别与重构实战指南&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据泥团（Data Clumps）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_10_%E6%95%B0%E6%8D%AE%E6%B3%A5%E5%9B%A2/"/>
+    <id>http://jacenliu.cn/badsmell_10_%E6%95%B0%E6%8D%AE%E6%B3%A5%E5%9B%A2/</id>
+    <published>2025-11-22T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:01.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;数据泥团（Data-Clumps）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#数据泥团（Data-Clumps）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>依恋情结（Feature Envy）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_09_%E4%BE%9D%E6%81%8B%E6%83%85%E7%BB%93/"/>
+    <id>http://jacenliu.cn/badsmell_09_%E4%BE%9D%E6%81%8B%E6%83%85%E7%BB%93/</id>
+    <published>2025-11-21T02:00:00.000Z</published>
+    <updated>2026-03-13T14:18:00.019Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;依恋情结（Feature-Envy）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#依恋情结（Feature-Envy）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>霰弹式修改（Shotgun Surgery）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_08_%E9%9C%B0%E5%BC%B9%E5%BC%8F%E4%BF%AE%E6%94%B9/"/>
+    <id>http://jacenliu.cn/badsmell_08_%E9%9C%B0%E5%BC%B9%E5%BC%8F%E4%BF%AE%E6%94%B9/</id>
+    <published>2025-11-20T02:00:00.000Z</published>
+    <updated>2026-03-13T14:17:58.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;霰弹式修改（Shotgun-Surgery）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#霰弹式修改（Shotgun-Surgery）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发散式变化（Divergent Change）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_07_%E5%8F%91%E6%95%A3%E5%BC%8F%E5%8F%98%E5%8C%96/"/>
+    <id>http://jacenliu.cn/badsmell_07_%E5%8F%91%E6%95%A3%E5%BC%8F%E5%8F%98%E5%8C%96/</id>
+    <published>2025-11-19T02:00:00.000Z</published>
+    <updated>2026-03-13T14:17:57.415Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;发散式变化（Divergent-Change）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#发散式变化（Divergent-Change）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>可变数据（Mutable Data）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_06_%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE/"/>
+    <id>http://jacenliu.cn/badsmell_06_%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE/</id>
+    <published>2025-11-18T02:00:00.000Z</published>
+    <updated>2026-03-13T14:17:56.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;可变数据（Mutable-Data）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#可变数据（Mutable-Data）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全局数据（Global Data）:坏味道识别与重构实战指南</title>
+    <link href="http://jacenliu.cn/badsmell_05_%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE/"/>
+    <id>http://jacenliu.cn/badsmell_05_%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE/</id>
+    <published>2025-11-17T02:00:00.000Z</published>
+    <updated>2026-03-13T14:17:55.072Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;全局数据（Global-Data）-坏味道识别与重构实战指南&quot;&gt;&lt;a href=&quot;#全局数据（Global-Data）-坏味道识别与重构实战指南&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="重构" scheme="http://jacenliu.cn/categories/%E9%87%8D%E6%9E%84/"/>
+    
+    
+    <category term="代码坏味道" scheme="http://jacenliu.cn/tags/%E4%BB%A3%E7%A0%81%E5%9D%8F%E5%91%B3%E9%81%93/"/>
+    
+    <category term="重构" scheme="http://jacenliu.cn/tags/%E9%87%8D%E6%9E%84/"/>
     
   </entry>
   
