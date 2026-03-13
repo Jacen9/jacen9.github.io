@@ -1,12 +1,22 @@
 /* 侧边栏宽度调整 */
 #aside-content {
   width: 320px !important;
+  flex: none !important;
 }
 
-/* 文章区域调整 */
+/* 文章页主内容区调整 - 让文章页 #post 自动填充剩余空间 */
+/* #body-wrap.post 表示文章详情页，#body-wrap.page 表示独立页面（非首页） */
+/* 首页也有 #body-wrap.page，但其子元素是 #recent-posts 而非 #post */
+#body-wrap.post .layout > #post,
+#body-wrap.page .layout > #page {
+  width: auto !important;
+  flex: 1 !important;
+}
+
+/* 文章内容区域不需要额外限制 */
 #post #article-container,
 #page .page-content {
-  max-width: calc(100% - 340px) !important;
+  max-width: 100% !important;
 }
 
 /* 移动端不应用 */
