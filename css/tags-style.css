@@ -1,0 +1,16 @@
+/* 侧边栏标签云 - 参照文章页面标签样式 */
+.card-tag-cloud a {
+  display: inline-block;
+  margin: 8px 8px 8px 0;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid currentColor;
+  font-size: .85em;
+  transition: all .2s ease-in-out;
+  text-decoration: none !important;
+}
+
+.card-tag-cloud a:hover {
+  background: currentColor;
+  color: #fff !important;
+}

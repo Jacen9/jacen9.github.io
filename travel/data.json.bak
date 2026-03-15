@@ -1,0 +1,1936 @@
+{
+  "_comment": "旅行足迹数据配置文件，JSON不支持注释，此字段仅作说明用途",
+  "_types": {
+    "spot": "景点（多图卡片，含建筑），图片放同名目录/1.jpg...",
+    "food": "美食（单图紧凑），图片自动使用 名称.jpg",
+    "museum": "博物（单图紧凑），图片自动使用 名称.jpg",
+    "folk": "民俗（多图卡片），图片放同名目录/1.jpg..."
+  },
+  "_example": {
+    "name": "示例城市（请勿删除此示例）",
+    "province": "示例省份",
+    "visited": true,
+    "date": "2024-01-10",
+    "comment": "城市感想",
+    "items": [
+      { "name": "故宫", "type": "spot", "comment": "紫禁城" },
+      { "name": "烤鸭", "type": "food", "comment": "皮脆肉嫩" },
+      { "name": "青铜鼎", "type": "museum", "comment": "商代文物" },
+      { "name": "舞龙", "type": "folk", "comment": "春节民俗" }
+    ],
+    "spots": ["旧结构兼容：spots数组会自动当作type:spot处理"]
+  },
+  "cities": [
+    {
+      "name": "北京市",
+      "province": "北京市",
+      "visited": true,
+      "date": "2024-01-10",
+      "comment": "故宫红墙，胡同烟火，北京城的历史底蕴让人震撼",
+      "spots": [
+        {
+          "name": "故宫",
+          "date": "2024-09-29",
+          "comment": "紫禁城，六百年风云"
+        }
+      ]
+    },
+    {
+      "name": "天津市",
+      "province": "天津市",
+      "visited": false
+    },
+    {
+      "name": "上海市",
+      "province": "上海市",
+      "visited": true,
+      "date": "2018-04-15",
+      "comment": "外滩风光，豫园古典，上海的现代化与传统交融",
+      "spots": [
+        {
+          "name": "外滩",
+          "date": "2024-09-29",
+          "comment": "外滩的灯光，是上海的夜"
+        },
+        {
+          "name": "世博园",
+
+          "date": "2024-09-29",
+
+          "comment": "上海的科技与艺术的碰撞"
+        }
+      ]
+    },
+    {
+      "name": "重庆市",
+      "province": "重庆市",
+      "visited": true,
+      "date": "2024-05-26",
+      "comment": "山城重庆，火锅、辣椒、高楼大厦",
+      "spots": [
+        {
+          "name": "洪崖洞",
+          "date": "2024-05-26",
+          "comment": ""
+        },
+        {
+          "name": "解放碑",
+          "date": "2024-05-26",
+          "comment": ""
+        }
+
+      ]
+    },
+    {
+      "name": "石家庄市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "唐山市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "秦皇岛市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "邯郸市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "邢台市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "保定市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "张家口市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "承德市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "沧州市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "廊坊市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "衡水市",
+      "province": "河北省",
+      "visited": false
+    },
+    {
+      "name": "太原市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "大同市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "阳泉市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "长治市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "晋城市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "朔州市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "晋中市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "运城市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "忻州市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "临汾市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "吕梁市",
+      "province": "山西省",
+      "visited": false
+    },
+    {
+      "name": "呼和浩特市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "包头市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "乌海市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "赤峰市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "通辽市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "鄂尔多斯市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "呼伦贝尔市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "巴彦淖尔市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "乌兰察布市",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "兴安盟",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "锡林郭勒盟",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "阿拉善盟",
+      "province": "内蒙古自治区",
+      "visited": false
+    },
+    {
+      "name": "沈阳市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "大连市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "鞍山市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "抚顺市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "本溪市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "丹东市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "锦州市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "营口市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "阜新市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "辽阳市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "盘锦市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "铁岭市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "朝阳市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "葫芦岛市",
+      "province": "辽宁省",
+      "visited": false
+    },
+    {
+      "name": "长春市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "吉林市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "四平市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "辽源市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "通化市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "白山市",
+      "province": "吉林省",
+      "visited": true,
+
+      "date": "2025-11-17",
+
+      "comment": "",
+      "spots": [
+        {
+          "name": "长白山",
+          "date": "2025-11-17",
+          "comment": ""
+        },
+        {
+          "name": "雪岭国家森林公园",
+          "date": "2025-11-17",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "松原市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "白城市",
+      "province": "吉林省",
+      "visited": false
+    },
+    {
+      "name": "延边朝鲜族自治州",
+      "province": "吉林省",
+      "visited": true,
+      "date": "2025-11-18",
+      "comment": "",
+      "spots": [
+        {
+          "name": "延吉市",
+          "visited": true,
+          "date": "2025-11-18",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "name": "哈尔滨市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "齐齐哈尔市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "鸡西市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "鹤岗市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "双鸭山市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "大庆市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "伊春市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "佳木斯市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "七台河市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "牡丹江市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "黑河市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "绥化市",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "大兴安岭地区",
+      "province": "黑龙江省",
+      "visited": false
+    },
+    {
+      "name": "南京市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "无锡市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "徐州市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "常州市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "苏州市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "南通市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "连云港市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "淮安市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "盐城市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "扬州市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "镇江市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "泰州市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "宿迁市",
+      "province": "江苏省",
+      "visited": false
+    },
+    {
+      "name": "杭州市",
+      "province": "浙江省",
+      "visited": true,
+      "date": "2016-07-16",
+      "comment": "西湖美景，断桥残雪，杭州真是个宜居的城市",
+      "spots": [
+        {
+          "name": "西湖",
+          "date": "2016-07-16",
+          "comment": "三潭印月，雷峰夕照，美不胜收"
+        },
+        {
+          "name": "雷峰塔",
+          "date": "2016-07-16",
+          "comment": "雷峰塔，雷峰夕照，美不胜收"
+        }
+      ]
+    },
+    {
+      "name": "宁波市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "温州市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "嘉兴市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "湖州市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "绍兴市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "金华市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "衢州市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "舟山市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "台州市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "丽水市",
+      "province": "浙江省",
+      "visited": false
+    },
+    {
+      "name": "合肥市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "芜湖市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "蚌埠市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "淮南市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "马鞍山市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "淮北市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "铜陵市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "安庆市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "黄山市",
+      "province": "安徽省",
+      "visited": true,
+      "date": "2018-01-01",
+      "comment": "黄山，黄山景区，黄山风景区",
+      "spots": [
+        {
+          "name": "黄山",
+          "date": "2018-01-01",
+          "comment": "黄山，黄山景区，黄山风景区"
+        }
+      ]
+    },
+    {
+      "name": "滁州市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "阜阳市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "宿州市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "六安市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "亳州市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "池州市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "宣城市",
+      "province": "安徽省",
+      "visited": false
+    },
+    {
+      "name": "福州市",
+      "province": "福建省",
+      "visited": true,
+      "date": "2013-07-01",
+      "comment": "三坊七巷，福州真是个宜居的城市",
+      "spots": [
+      ]
+    },
+    {
+      "name": "厦门市",
+      "province": "福建省",
+      "visited": true
+    },
+    {
+      "name": "莆田市",
+      "province": "福建省",
+      "visited": true
+    },
+    {
+      "name": "三明市",
+      "province": "福建省",
+      "visited": false
+    },
+    {
+      "name": "泉州市",
+      "province": "福建省",
+      "visited": true,
+      "date": "2026-02-13",
+      "items": [
+        {
+           "name": "开元寺",
+           "type": "spot", 
+           "date": "2026-02-13", 
+           "comment": " "
+        },
+        {
+           "name": "四果汤",
+           "type": "food", 
+           "date": "2026-02-13", 
+           "comment": " "
+        },
+        {
+           "name": "姜母鸭",
+           "type": "food", 
+           "date": "2026-02-13", 
+           "comment": " "
+        },{
+          "name": "木偶戏",
+          "type": "folk", 
+          "date": "2026-02-13", 
+          "comment": " "
+        }
+      ]
+    },
+    {
+      "name": "漳州市",
+      "province": "福建省",
+      "visited": false
+    },
+    {
+      "name": "南平市",
+      "province": "福建省",
+      "visited": false
+    },
+    {
+      "name": "龙岩市",
+      "province": "福建省",
+      "visited": true
+    },
+    {
+      "name": "宁德市",
+      "province": "福建省",
+      "visited": true
+    },
+    {
+      "name": "南昌市",
+      "province": "江西省",
+      "visited": true
+    },
+    {
+      "name": "景德镇市",
+      "province": "江西省",
+      "visited": true
+    },
+    {
+      "name": "萍乡市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "九江市",
+      "province": "江西省",
+      "visited": true
+    },
+    {
+      "name": "新余市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "鹰潭市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "赣州市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "吉安市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "宜春市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "抚州市",
+      "province": "江西省",
+      "visited": false
+    },
+    {
+      "name": "上饶市",
+      "province": "江西省",
+      "visited": true
+    },
+    {
+      "name": "济南市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "青岛市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "淄博市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "枣庄市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "东营市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "烟台市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "潍坊市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "济宁市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "泰安市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "威海市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "日照市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "临沂市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "德州市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "聊城市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "滨州市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "菏泽市",
+      "province": "山东省",
+      "visited": false
+    },
+    {
+      "name": "郑州市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "开封市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "洛阳市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "平顶山市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "安阳市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "鹤壁市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "新乡市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "焦作市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "濮阳市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "许昌市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "漯河市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "三门峡市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "南阳市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "商丘市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "信阳市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "周口市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "驻马店市",
+      "province": "河南省",
+      "visited": false
+    },
+    {
+      "name": "武汉市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "黄石市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "十堰市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "宜昌市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "襄阳市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "鄂州市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "荆门市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "孝感市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "荆州市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "黄冈市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "咸宁市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "随州市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "恩施土家族苗族自治州",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "仙桃市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "潜江市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "天门市",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "神农架林区",
+      "province": "湖北省",
+      "visited": false
+    },
+    {
+      "name": "长沙市",
+      "province": "湖南省",
+      "visited": true
+    },
+    {
+      "name": "株洲市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "湘潭市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "衡阳市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "邵阳市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "岳阳市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "常德市",
+      "province": "湖南省",
+      "visited": true
+    },
+    {
+      "name": "张家界市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "益阳市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "郴州市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "永州市",
+      "province": "湖南省",
+      "visited": true
+    },
+    {
+      "name": "怀化市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "娄底市",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "湘西土家族苗族自治州",
+      "province": "湖南省",
+      "visited": false
+    },
+    {
+      "name": "广州市",
+      "province": "广东省",
+      "visited": true,
+      "date": "2017-07-01",
+      "spots": [
+        {
+          "name": "中山纪念堂",
+          "visited": true,
+          "date": "2018-06-15"
+        },
+        {
+          "name": "圣心大教堂",
+          "visited": true,
+          "date": "2018-06-15"
+        }
+      ]
+    },
+    {
+      "name": "韶关市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "深圳市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "珠海市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "汕头市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "佛山市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "江门市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "湛江市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "茂名市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "肇庆市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "惠州市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "梅州市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "汕尾市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "河源市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "阳江市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "清远市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "东莞市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "中山市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "潮州市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "揭阳市",
+      "province": "广东省",
+      "visited": true
+    },
+    {
+      "name": "云浮市",
+      "province": "广东省",
+      "visited": false
+    },
+    {
+      "name": "南宁市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "柳州市",
+      "province": "广西壮族自治区",
+      "visited": true
+    },
+    {
+      "name": "桂林市",
+      "province": "广西壮族自治区",
+      "visited": true
+    },
+    {
+      "name": "梧州市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "北海市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "防城港市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "钦州市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "贵港市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "玉林市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "百色市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "贺州市",
+      "province": "广西壮族自治区",
+      "visited": true
+    },
+    {
+      "name": "河池市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "来宾市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "崇左市",
+      "province": "广西壮族自治区",
+      "visited": false
+    },
+    {
+      "name": "海口市",
+      "province": "海南省",
+      "visited": false
+    },
+    {
+      "name": "三亚市",
+      "province": "海南省",
+      "visited": false
+    },
+    {
+      "name": "三沙市",
+      "province": "海南省",
+      "visited": false
+    },
+    {
+      "name": "儋州市",
+      "province": "海南省",
+      "visited": false
+    },
+    {
+      "name": "成都市",
+      "province": "四川省",
+      "visited": true,
+      "date": "2024-05-20",
+      "comment": "宽窄巷子，火锅飘香，成都一座来了就不想走的城市",
+      "spots": [
+      ]
+    },
+    {
+      "name": "自贡市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "攀枝花市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "泸州市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "德阳市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "绵阳市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "广元市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "遂宁市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "内江市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "乐山市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "南充市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "眉山市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "宜宾市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "广安市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "达州市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "雅安市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "巴中市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "资阳市",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "阿坝藏族羌族自治州",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "甘孜藏族自治州",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "凉山彝族自治州",
+      "province": "四川省",
+      "visited": false
+    },
+    {
+      "name": "贵阳市",
+      "province": "贵州省",
+      "visited": true
+    },
+    {
+      "name": "六盘水市",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "遵义市",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "安顺市",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "毕节市",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "铜仁市",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "黔西南布依族苗族自治州",
+      "province": "贵州省",
+      "visited": false
+    },
+    {
+      "name": "黔东南苗族侗族自治州",
+      "province": "贵州省",
+      "visited": true
+    },
+    {
+      "name": "黔南布依族苗族自治州",
+      "province": "贵州省",
+      "visited": true
+    },
+    {
+      "name": "昆明市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "曲靖市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "玉溪市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "保山市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "昭通市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "丽江市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "普洱市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "临沧市",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "楚雄彝族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "红河哈尼族彝族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "文山壮族苗族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "西双版纳傣族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "大理白族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "德宏傣族景颇族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "怒江傈僳族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "迪庆藏族自治州",
+      "province": "云南省",
+      "visited": false
+    },
+    {
+      "name": "拉萨市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "日喀则市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "昌都市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "林芝市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "山南市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "那曲市",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "阿里地区",
+      "province": "西藏自治区",
+      "visited": false
+    },
+    {
+      "name": "西安市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "铜川市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "宝鸡市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "咸阳市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "渭南市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "延安市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "汉中市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "榆林市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "安康市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "商洛市",
+      "province": "陕西省",
+      "visited": false
+    },
+    {
+      "name": "兰州市",
+      "province": "甘肃省",
+      "visited": true
+    },
+    {
+      "name": "嘉峪关市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "金昌市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "白银市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "天水市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "武威市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "张掖市",
+      "province": "甘肃省",
+      "visited": true
+    },
+    {
+      "name": "平凉市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "酒泉市",
+      "province": "甘肃省",
+      "visited": true
+    },
+    {
+      "name": "庆阳市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "定西市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "陇南市",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "临夏回族自治州",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "甘南藏族自治州",
+      "province": "甘肃省",
+      "visited": false
+    },
+    {
+      "name": "西宁市",
+      "province": "青海省",
+      "visited": true
+    },
+    {
+      "name": "海东市",
+      "province": "青海省",
+      "visited": true
+    },
+    {
+      "name": "海北藏族自治州",
+      "province": "青海省",
+      "visited": true
+    },
+    {
+      "name": "黄南藏族自治州",
+      "province": "青海省",
+      "visited": false
+    },
+    {
+      "name": "海南藏族自治州",
+      "province": "青海省",
+      "visited": true
+    },
+    {
+      "name": "果洛藏族自治州",
+      "province": "青海省",
+      "visited": false
+    },
+    {
+      "name": "玉树藏族自治州",
+      "province": "青海省",
+      "visited": false
+    },
+    {
+      "name": "海西蒙古族藏族自治州",
+      "province": "青海省",
+      "visited": true
+    },
+    {
+      "name": "银川市",
+      "province": "宁夏回族自治区",
+      "visited": false
+    },
+    {
+      "name": "石嘴山市",
+      "province": "宁夏回族自治区",
+      "visited": false
+    },
+    {
+      "name": "吴忠市",
+      "province": "宁夏回族自治区",
+      "visited": false
+    },
+    {
+      "name": "固原市",
+      "province": "宁夏回族自治区",
+      "visited": false
+    },
+    {
+      "name": "中卫市",
+      "province": "宁夏回族自治区",
+      "visited": false
+    },
+    {
+      "name": "乌鲁木齐市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "克拉玛依市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "吐鲁番市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "哈密市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "昌吉回族自治州",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "博尔塔拉蒙古自治州",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "巴音郭楞蒙古自治州",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "阿克苏地区",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "克孜勒苏柯尔克孜自治州",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "喀什地区",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "和田地区",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "伊犁哈萨克自治州",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "塔城地区",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "阿勒泰地区",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "石河子市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "阿拉尔市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "图木舒克市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "五家渠市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "北屯市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "铁门关市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "双河市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "可克达拉市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "昆玉市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "胡杨河市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "新星市",
+      "province": "新疆维吾尔自治区",
+      "visited": false
+    },
+    {
+      "name": "台湾省",
+      "province": "台湾省",
+      "visited": false
+    },
+    {
+      "name": "香港特别行政区",
+      "province": "香港特别行政区",
+      "visited": false
+    },
+    {
+      "name": "澳门特别行政区",
+      "province": "澳门特别行政区",
+      "visited": false
+    }
+  ]
+}
